@@ -123,14 +123,13 @@ h3 {
           $("#chatbox").append(userHtml);
           document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
           $.get("/get", { msg: rawText }).done(function(data) {
-            console.log(data)
-            var botHtml = '<p class="botText"><span>' + data.output + '</span></p>';
+            var botHtml = '<p class="botText"><span>' + (data && data.output) + '</span></p>';
             $("#chatbox").append(botHtml);
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
             
-            if (data.timeOut.milisecond > 0) {
+            if (data && data.timeOut && data.timeOut.milisecond > 0) {
                 setTimeout(() => {
-                    let html = '<p class="botText"><span>' + data.timeOut.msg + '</span></p>';
+                    let html = '<p class="botText"><span>' + (data && data.timeOut && data.timeOut.msg) + '</span></p>';
                     $("#chatbox").append(html);
                 }, data.timeOut.milisecond);
             }
