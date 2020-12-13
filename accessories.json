@@ -1,0 +1,36 @@
+{
+  "ram": {
+    "common": "https://xgear.vn/?s=ram&search_posttype=product",
+    "gigabyte": "https://xgear.vn/?s=ram+gigabyte&search_posttype=product",
+    "kingston": "https://xgear.vn/?s=ram+kingston&search_posttype=product",
+    "samsung": "https://xgear.vn/?s=ram+samsung&search_posttype=product"
+  },
+  "ssd": {
+    "common": "https://xgear.vn/linh-kien/o-cung-ssd/",
+    "samsung": "https://thinkpro.vn/tim-kiem?search=ssd%20samsung",
+    "kingston": "https://thinkpro.vn/tim-kiem?search=ssd%20kingston",
+    "toshiba": "https://tuanphong.vn/ssd/ssd-120gb-toshiba-a100",
+    "seagate": "https://xgear.vn/ssd-seagate-barracuda-510-255gb-nvme-pcie-gen3-x4/"
+  },
+  "hdd": {
+    "common": "https://xgear.vn/linh-kien/o-cung-hdd/",
+    "samsung": "https://www.anphatpc.com.vn/o-cung-hdd-ssd_dm1314.html",
+    "kingston": "https://phongvu.vn/o-cung-ssd-kingston-a400-120gb-sata-3-sa400s37120g-s1704461.html",
+    "toshiba": "https://thinkpro.vn/o-cung-hdd-25-toshiba-1000gb?option=HDD25TOS1000",
+    "seagate": "https://thinkpro.vn/o-cung-hdd-35-seagate-barracuda-500gb?option=HDD35SGB500"
+  },
+  "vga": {
+    "common": "https://xgear.vn/linh-kien/vga/",
+    "asus": "https://www.anphatpc.com.vn/tim?scat_id=&q=vga+asus"
+  },
+  "cpu": {
+    "common": "https://xgear.vn/?s=cpu&search_posttype=product",
+    "intel": "https://xgear.vn/cpu-intel/",
+    "amd": "https://xgear.vn/cpu-amd-ryzen/"
+  },
+  "adapter": {
+    "common": "https://www.hanoicomputer.vn/sac-laptop",
+    "asus": "https://www.hanoicomputer.vn/sac-laptop?brand=asus",
+    "dell": "https://www.hanoicomputer.vn/sac-laptop?brand=dell"
+  }
+}
