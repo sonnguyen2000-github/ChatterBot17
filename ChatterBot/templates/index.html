@@ -96,7 +96,6 @@
             <p class="botText"><span>Hi! I'm Chatterbot. Ask me anything</span></p>
         </div>
         <button id="advisory" class="btn" style="margin-left: 30%; margin-right: 5px;" onclick="getBotResponseAdvisory()" title="Click để được tư vấn bán hàng">Tư vấn</button>
-        <button id="guarantee" class="btn" style="margin-right: 5px;" onclick="getBotResponseWarranty()" title="Click để được thông tin bảo hành">Bảo hành</button>
         <button id="repair" class="btn" onclick="getBotResponseRepair()" title="Click để được thông tin sửa chữa">Sửa chữa</button>
         <div id="userInput">
             <input id="textInput" type="text" name="msg" placeholder="Message">
@@ -147,11 +146,6 @@
                 $("#advisory").toggleClass("active-button");
             }
             
-            function getBotResponseWarranty() {
-                responeType = "warranty";
-                $(".active-button").toggleClass("active-button");
-                $("#guarantee").toggleClass("active-button");
-            }
 
             function getBotResponseRepair() {
                 responeType = "repair";

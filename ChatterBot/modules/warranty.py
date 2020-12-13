@@ -1,3 +1,7 @@
+import json
+import time
+from datetime import date
+
 def Write_dataJson(output, value, userText):
 	with open('C://Users//Admin//Downloads//ChatterBot17-main//ChatterBot//reader_user.json','r', encoding="utf8") as user_dumped:
 		reader_loader = json.load(user_dumped)
@@ -19,14 +23,14 @@ def check_warranty(str):
 	list2 = str.split(' ')
 	listDateWarranty = [int(s) for s in str.split() if s.isdigit()]
 	lengthWarranty = len(listDateWarranty)
-	if or 'năm ngoái' in str or 'hôm qua' in str or 'hôm kia' in str or 'hôm trước' in str \
+	if 'năm ngoái' in str or 'hôm qua' in str or 'hôm kia' in str or 'hôm trước' in str \
 	or 'tuần trước' in str or 'tuần trước' in str or 'tháng trước' in str:
 		return True
 	elif lengthWarranty == 0:
 		return False
-	elif length == len(list_today):
-		for i in range(0, length):
-			if (int(listDateWarranty[length - 1 - i])) > (int(list_today[length - 1 - i])):
+	elif lengthWarranty == len(list_today):
+		for i in range(0, lengthWarranty):
+			if (int(listDateWarranty[lengthWarranty - 1 - i])) > (int(list_today[lengthWarranty - 1 - i])):
 				return False
 				break
 	return True
@@ -38,13 +42,8 @@ def check_in(output, str):
 			return True
 	return False
 
-@app.route("/")
-def home():
-	return render_template("index.html")
 
-#print(check_warranty('ngày 15 tháng 7 năm 2021'))
-@app.route("/get")
-def get_bot_response():
+def get_warranty_response(my_bot, request):
 	userText = request.args.get('msg')
 
 	userText = str.lower(userText)

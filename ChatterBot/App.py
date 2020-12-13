@@ -10,7 +10,7 @@ import time
 from .modules.repair import get_repair_response
 from .modules.laptopAdvisory import get_laptop_response
 from .modules.accessories_advisory import accessories
-
+from .modules.warranty import get_warranty_response
 app = Flask(__name__)
 
 my_bot = ChatBot("MyChatterBot", 
@@ -46,10 +46,13 @@ def get_response():
         return accessories(my_bot, userText.lower())
 
 
-## Thông tin bảo hành
+## Thông tin bảo hành - sửa chữa
 @app.route("/get/repair")
 def get_repair():
-	return get_repair_response(my_bot, request)
+	if get_repair_response(my_bot, request):
+		return get_repair_response(my_bot, request)
+	elif get_warranty_response(my_bot, request):
+		get_warranty_response(my_bot, request)
 
 
 if __name__ == "__main__":
