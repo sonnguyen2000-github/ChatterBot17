@@ -1,11 +1,6 @@
 ﻿categories:
 - This is my own data ouside the corpus
 conversations:
-- - Mình chưa hiểu rõ lắm, bạn vui lòng nhắc lại được không ạ.
-- - xin chào
-  - Chào mừng bạn đến với Laptop247. Mình có thể giúp gì cho bạn ạ?
-- - cảm ơn
-  - Không có gì ạ. Rất vui được hỗ trợ bạn!
 - - mua laptop
   - Bạn muốn mua loại nào?
 - - mẫu nào
@@ -129,20 +124,3 @@ conversations:
 - - dell4
   - Mời bạn tham khảo một số máy Dell với mức giá trên 25 triệu sau đây ạ
    <a href="https://www.thegioididong.com/laptop-dell?p=tren-25-trieu" target="_blank">Click here</a>
-
-- - địa chỉ 
-  - Mời bạn ghé qua cửa hàng của chúng mình tại 40 Lê Thanh Nghị để được các bạn nhân viên hỗ trợ nha.
-- - ưu đãi
-  - Dạ, từ ngày 12/12 đến hết ngày 27/12 shop đang có chương trình giảm giá lên đến 50% cho một số mặt hàng. 
-   Mời bạn ghé qua shop sớm để hưởng thật nhiều ưu đãi nhé.
-
-- - phụ kiện
-  - Bạn muốn thông tin loại phụ kiện nào ạ?
-- - hãng_phụ_kiện
-  - Bên mình có rất nhiều !type! hãng !model! cho bạn lựa chọn.
-      Bạn có thể tham khảo thêm tại đây !link!.
-- - loại_phụ_kiện
-  - Bên mình có rất nhiều loại !type! cho bạn lựa chọn. Bạn có thể tham khảo thêm tại đây !link!.
-      Bạn muốn mua !type! hãng nào ạ
-- - thông_tin_phụ_kiện
-  - Dạ thông tin các loại !phụ kiện! bạn có thể tham khảo tại đây ạ !link!

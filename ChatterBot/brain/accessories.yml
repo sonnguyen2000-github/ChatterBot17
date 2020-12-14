@@ -5,18 +5,14 @@ conversations:
   - Mình chưa hiểu rõ lắm, bạn vui lòng nhắc lại được không ạ
 - - bạn là ai
   - Mình là một sản phẩm nhân tạo
-- - phụ kiện
-  - Bạn muốn thông tin loại phụ kiện nào ạ
+- - phụ_kiện
+  - Bạn muốn thông tin loại phụ kiện nào ạ. Bên mình có rất nhiều loại ram, ổ cứng ssd, ổ cứng hdd, vga, sạc...
+      Bạn muốn loại nào ạ
 - - hãng_phụ_kiện
-  - Bên mình có rất nhiều !type! hãng !model! cho bạn lựa chọn.
+  - Bên mình có rất nhiều !type! hãng !model! cho bạn lựa chọn như
       Bạn có thể tham khảo thêm tại đây !link!.
 - - loại_phụ_kiện
   - Bên mình có rất nhiều loại !type! cho bạn lựa chọn. Bạn có thể tham khảo thêm tại đây !link!.
-      Bạn muốn mua !type! hãng nào ạ
+      Bên mình có những hãng như !list!. Bạn muốn mua !type! hãng nào ạ
 - - thông_tin_phụ_kiện
   - Dạ thông tin các loại !phụ kiện! bạn có thể tham khảo tại đây ạ !link!
-- - ngu vcl
-  - <img alt="Pin on Jun" class="n3VNCb"
-      src="https://i.pinimg.com/474x/e6/d5/fc/e6d5fc5ce2578bd7204feb9413698235.jpg" data-noaft="1" jsname="HiaYvf" jsaction="load:XAeZkd;" style="width:300px; height:250px; margin:0px;">
-- - cám ơn
-  - Không có gì ạ. Rất vui được hỗ trợ bạn

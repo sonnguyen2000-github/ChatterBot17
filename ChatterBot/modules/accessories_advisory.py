@@ -1,8 +1,10 @@
 import json
 
+
 def accessories_link(my_bot, type, model):
-    file = open('G:\Desktop\Document20201\AI\ChatterBot17\ChatterBot\data\accessories.json')
+    file = open('data/accessories.json')
     data = json.load(file)
+    file.close()
     if model == 'common':
         response = str(my_bot.get_response('loại_phụ_kiện'))
     else:
@@ -13,28 +15,40 @@ def accessories_link(my_bot, type, model):
     response = response.replace('!link!', link)
     if '!model!' in response:
         response = response.replace('!model!', model.upper())
+    if '!list' in response:
+        list = str(data[type].keys()).replace("'", '')
+        list = list.replace('dict_keys', '')
+        list = list.replace('(', '')
+        list = list.replace(')', '')
+        list = list.replace('[', '')
+        list = list.replace(']', '')
+        list = list.replace('common,', '')
+        response = response.replace('!list!', list.upper())
     print(response)
     return response
 
 
-def accessories_analyze(my_bot, accessories):
-    file = open('G:\Desktop\Document20201\AI\ChatterBot17\ChatterBot\data\accessories.json')
+def accessories_analyze(my_bot, userText):
+    file = open('data/accessories.json')
     data = json.load(file)
+    file.close()
     model = 'common'
-    if 'ram' in accessories:
+    if 'ram' in userText:
         type = 'ram'
-    elif 'ssd' in accessories:
+    elif 'ssd' in userText:
         type = 'ssd'
-    elif 'hdd' in accessories:
+    elif 'hdd' in userText:
         type = 'hdd'
-    elif 'vga' in accessories:
+    elif 'vga' in userText:
         type = 'vga'
-    elif 'adapter' in accessories:
+    elif 'sạc' in userText or 'adapter' in userText:
         type = 'adapter'
-    elif 'cpu' in accessories:
+    elif 'ổ cứng' in userText:
+        type = 'hdd'
+    elif 'cpu' in userText:
         type = 'cpu'
     for e in data[type]:
-        if e in accessories:
+        if e in userText:
             model = e
             break
     return accessories_link(my_bot, type, model)
@@ -43,13 +57,15 @@ def accessories_analyze(my_bot, accessories):
 def accessories(my_bot, userText):
     msgAfterWait = ''
     miliseconds = 0
-    output = my_bot.get_response('unknown')
+    output = None
     if 'ngu vcl' in userText:
         output = my_bot.get_response('ngu vcl')
     if 'phụ kiện' in userText:
         output = my_bot.get_response('phụ kiện')
     if 'ram' in userText or 'cpu' in userText \
             or 'sạc' in userText or 'ổ cứng' in userText \
-            or 'hdd' in userText or 'ssd' in userText or 'vga' in userText:
+            or 'hdd' in userText or 'ssd' in userText or 'vga' in userText \
+            or 'adapter' in userText:
         output = accessories_analyze(my_bot, userText)
-    return {"output": str(output), 'timeOut': {'msg': msgAfterWait, 'miliseconds': miliseconds}}
+    return {"output": str(output), 'timeOut': {'msg': msgAfterWait,
+                                               'milisecond': miliseconds}} if output else None

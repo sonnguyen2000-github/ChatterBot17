@@ -80,3 +80,15 @@ h3 {
     right:0;
     width: 300px;
 }
+
+.btn {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.active-button, .btn:hover {
+    color: white;
+    background-color: #06c;
+}

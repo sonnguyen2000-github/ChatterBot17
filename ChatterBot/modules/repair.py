@@ -1,12 +1,12 @@
 import json
 
+
 def get_repair_response(my_bot, request):
     phuKien = None
 
     ## Đọc file json
-    file = open('G://Desktop//Document20201//AI//ChatterBot17//ChatterBot//data//repair.json')
+    file = open('data/repair.json')
     data = json.load(file)
-        
 
     timeOut = 0
     msgAfterWait = ''
@@ -15,10 +15,12 @@ def get_repair_response(my_bot, request):
     userText = request.args.get('msg')
     userText = str.lower(userText)
 
-    if ('hỏng' in userText or 'không nghe được' in userText) and ('âm thanh' in userText or 'tiếng' in userText) or ('lỗi loa' in userText):
+    if ('hỏng' in userText or 'không nghe được' in userText) and ('âm thanh' in userText or 'tiếng' in userText) or (
+            'lỗi loa' in userText):
         output = 'loi_loa'
         phuKien = "thay_the_loa"
-    elif ('hỏng' in userText or 'không mở được' in userText or 'màn hình xanh' in userText) and ('ổ cứng' in userText or 'ssd' in userText or 'hdd' in userText):
+    elif ('hỏng' in userText or 'không mở được' in userText or 'màn hình xanh' in userText) and (
+            'ổ cứng' in userText or 'ssd' in userText or 'hdd' in userText):
         output = 'loi_o_cung'
         phuKien = "thay_the_o_cung"
     elif 'sửa chữa' in userText:
@@ -58,13 +60,14 @@ def get_repair_response(my_bot, request):
             output = 'vấn đề'
 
     if phuKien:
-        data.update({ "phu_kien": phuKien })
-        with open('G://Desktop//Document20201//AI//ChatterBot17//ChatterBot//data//repair.json','w',encoding='utf-8') as user_dumped :
+        data.update({"phu_kien": phuKien})
+        with open('data/repair.json', 'w',
+                  encoding='utf-8') as user_dumped:
             json.dump(data, user_dumped, ensure_ascii=False)
 
     print(data["phu_kien"])
     print(data[data["phu_kien"]])
-    
+
     if output:
         if output == 'thay_the':
             output = str(my_bot.get_response(str(output)))
@@ -72,7 +75,7 @@ def get_repair_response(my_bot, request):
                 output = output + "</br>" + i
         else:
             output = str(my_bot.get_response(str(output)))
-        
+
         return {'output': output, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}
     else:
         return None
