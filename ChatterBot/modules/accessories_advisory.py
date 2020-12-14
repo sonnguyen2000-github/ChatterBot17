@@ -61,7 +61,7 @@ def accessories(my_bot, userText):
     if 'ngu vcl' in userText:
         output = my_bot.get_response('ngu vcl')
     if 'phụ kiện' in userText:
-        output = my_bot.get_response('phụ kiện')
+        output = my_bot.get_response('phụ_kiện')
     if 'ram' in userText or 'cpu' in userText \
             or 'sạc' in userText or 'ổ cứng' in userText \
             or 'hdd' in userText or 'ssd' in userText or 'vga' in userText \
