@@ -32,11 +32,11 @@ trainer = ChatterBotCorpusTrainer(my_bot)
 
 with open('data/conversation.json', 'w', encoding='utf-8') as file:
     file.flush()
-    file.write('{"laptop": "", "price": 0, "purpose": ""}')
-
-with open('data/repair.json', 'w', encoding='utf-8') as file:
-    file.flush()
     file.write('{}')
+
+with open('data/ReadUser.json', 'w', encoding='utf-8') as file:
+    file.flush()
+    file.write('{"laptop": "", "price": 0, "purpose": ""}')
 
 def json_conversation_save(userText, output):
     with open('data/conversation.json', 'r', encoding='utf-8') as file:
@@ -53,12 +53,13 @@ def json_conversation_save(userText, output):
 def home():
     return render_template("index.html")
 
-
+# general
 @app.route("/get/general")
 def get_general():  # get_general được gọi khi chưa chọn mục tư vấn
     userText = request.args.get('msg')
     output = get_general_response(my_bot, userText.lower())
-    json_conversation_save(userText, output['output'])  # lưu cuộc hội thoại, tương tự với get_advisory và get_repair
+    if output:
+        json_conversation_save(userText, output['output'])  # lưu cuộc hội thoại, tương tự với get_advisory và get_repair
     return output
 
 
@@ -89,6 +90,10 @@ def get_repair():
         output = get_repair_response(my_bot, request)
     elif get_warranty_response(my_bot, request):
         output = get_warranty_response(my_bot, request)
+    elif get_general_response(my_bot, userText.lower()):
+        output = get_general_response(my_bot, userText.lower())
+    output = output if output else {'output': str(my_bot.get_response('unknown')),
+                                    'timeOut': {'msg': '', 'milisecond': 0}}
     json_conversation_save(userText, output['output'])
     return output
 
