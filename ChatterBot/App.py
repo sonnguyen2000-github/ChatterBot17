@@ -38,6 +38,7 @@ with open('data/ReadUser.json', 'w', encoding='utf-8') as file:
     file.flush()
     file.write('{"laptop": "", "price": 0, "purpose": ""}')
 
+
 def json_conversation_save(userText, output):
     with open('data/conversation.json', 'r', encoding='utf-8') as file:
         old_data = json.load(file)
@@ -53,13 +54,18 @@ def json_conversation_save(userText, output):
 def home():
     return render_template("index.html")
 
+
 # general
 @app.route("/get/general")
 def get_general():  # get_general được gọi khi chưa chọn mục tư vấn
     userText = request.args.get('msg')
     output = get_general_response(my_bot, userText.lower())
     if output:
-        json_conversation_save(userText, output['output'])  # lưu cuộc hội thoại, tương tự với get_advisory và get_repair
+        json_conversation_save(userText,
+                               output['output'])  # lưu cuộc hội thoại, tương tự với get_advisory và get_repair
+    else:
+        output = {'output': str(my_bot.get_response('unknown')),
+                  'timeOut': {'msg': '', 'milisecond': 0}}
     return output
 
 
