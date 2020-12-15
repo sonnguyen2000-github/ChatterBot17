@@ -15,7 +15,7 @@ def get_repair_response(my_bot, request):
     userText = request.args.get('msg')
     userText = str.lower(userText)
 
-    if ('hỏng' in userText or 'không nghe được' in userText) and ('âm thanh' in userText or 'tiếng' in userText) or (
+    if ('hỏng' in userText or 'không nghe được' in userText or 'lỗi' in userText) and ('âm thanh' in userText or 'tiếng' in userText) or (
             'lỗi loa' in userText):
         output = 'loi_loa'
         phuKien = "thay_the_loa"
