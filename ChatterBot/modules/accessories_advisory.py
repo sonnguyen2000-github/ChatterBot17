@@ -70,10 +70,10 @@ def accessories_analyze(my_bot, userText):
             model = e
     return accessories_link(my_bot, type, brand, model)
 
+
 def laptop_link(my_bot, feature, choice):
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8')
-    data = json.load(file)
-    file.close()
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8-sig') as file:
+        data = json.load(file)
 
     output = None
     if choice:
@@ -81,14 +81,12 @@ def laptop_link(my_bot, feature, choice):
         output = output.replace('!feature!', (feature + ' ' + choice).upper())
         link = '<a href="' + data[feature][choice] + '" target="_blank">Click here</a>'
         output = output.replace('!link!', link)
-
     return output
 
 
 def laptop_analyze(my_bot, userText):
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8')
-    data = json.load(file)
-    file.close()
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8-sig') as file:
+        data = json.load(file)
 
     feature = None
     choice = None
@@ -99,7 +97,7 @@ def laptop_analyze(my_bot, userText):
     if 'ssd' in userText:
         feature = 'ssd'
     if 'màn' in userText or 'inch' in userText:
-        feature = 'screen'
+        feature = 'màn hình'
     for e in data[feature]:
         if e in userText:
             choice = e

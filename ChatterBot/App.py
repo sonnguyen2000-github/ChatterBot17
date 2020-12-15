@@ -95,9 +95,9 @@ def get_repair():
     userText = request.args.get('msg')
     output = {'output': 'unknown',
               'timeOut': {'msg': '', 'milisecond': 0}}
-    if get_repair_response(my_bot, request):
-        output = get_repair_response(my_bot, request)
-    elif get_warranty_response(my_bot, request):
+    #if get_repair_response(my_bot, request):
+     #   output = get_repair_response(my_bot, request)
+    if get_warranty_response(my_bot, request):
         output = get_warranty_response(my_bot, request)
     elif get_general_response(my_bot, userText.lower()):
         output = get_general_aeresponse(my_bot, userText.lower())
