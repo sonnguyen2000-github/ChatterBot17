@@ -5,6 +5,7 @@
     "i7": "https://fptshop.com.vn/may-tinh-xach-tay?cpu=intel-core-i7&sort=ban-chay-nhat"
   },
   "ssd": {
+    " ": "https://fptshop.com.vn/may-tinh-xach-tay?o-cung=ssd-128-gb&sort=ban-chay-nhat",
     "128gb": "https://fptshop.com.vn/may-tinh-xach-tay?o-cung=ssd-128-gb&sort=ban-chay-nhat",
     "256gb": "https://fptshop.com.vn/may-tinh-xach-tay?o-cung=ssd-256-gb&sort=ban-chay-nhat",
     "512gb": "https://fptshop.com.vn/may-tinh-xach-tay?o-cung=ssd-512-gb&sort=ban-chay-nhat"
@@ -16,8 +17,6 @@
     "32gb": "https://fptshop.com.vn/may-tinh-xach-tay?ram=32-gb&sort=ban-chay-nhat"
   },
   "screen": {
-    "rgb" : "https://www.google.com/search?q=laptop+m%C3%A0n+rgb&oq=laptop+m%C3%A0n+rgb&aqs=chrome..69i57.4246j0j1&sourceid=chrome&ie=UTF-8",
-    "cảm ứng": "https://fptshop.com.vn/may-tinh-xach-tay?tinh-nang-dac-biet=man-hinh-cam-ung&sort=ban-chay-nhat",
     "13 inch": "https://fptshop.com.vn/may-tinh-xach-tay?man-hinh=khoang-13-inch&sort=ban-chay-nhat",
     "14 inch": "https://fptshop.com.vn/may-tinh-xach-tay?man-hinh=khoang-14-inch&sort=ban-chay-nhat",
     "15 inch": "https://fptshop.com.vn/may-tinh-xach-tay?man-hinh=khoang-15-inch&sort=ban-chay-nhat"

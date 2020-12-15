@@ -5,7 +5,7 @@ def get_repair_response(my_bot, request):
     phuKien = None
 
     ## Đọc file json
-    file = open('data/repair.json')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//repair.json', encoding='utf-8')
     data = json.load(file)
 
     timeOut = 0
@@ -15,7 +15,7 @@ def get_repair_response(my_bot, request):
     userText = request.args.get('msg')
     userText = str.lower(userText)
 
-    if ('hỏng' in userText or 'không nghe được' in userText) and ('âm thanh' in userText or 'tiếng' in userText) or (
+    if ('hỏng' in userText or 'không nghe được' in userText or 'lỗi' in userText) and ('âm thanh' in userText or 'tiếng' in userText) or (
             'lỗi loa' in userText):
         output = 'loi_loa'
         phuKien = "thay_the_loa"
@@ -61,12 +61,9 @@ def get_repair_response(my_bot, request):
 
     if phuKien:
         data.update({"phu_kien": phuKien})
-        with open('data/repair.json', 'w',
+        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//repair.json', 'w',
                   encoding='utf-8') as user_dumped:
             json.dump(data, user_dumped, ensure_ascii=False)
-
-    print(data["phu_kien"])
-    print(data[data["phu_kien"]])
 
     if output:
         if output == 'thay_the':

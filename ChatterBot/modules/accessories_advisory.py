@@ -6,30 +6,17 @@ def hasNumbers(inputString):
     return bool(re.search(r'\d', inputString))
 
 
-def learn(type, choice):
-    file = open('data/learned/accessories_learned.json', 'r', encoding='utf-8')
-    data = json.load(file)
-    count = int(data[type][choice])
-    print(count)
-    count += 1
-    data[type][choice] = count
-    file = open('data/learned/accessories_learned.json', 'w')
-    json.dump(data, file, indent=2, ensure_ascii=False)
-
-
 def accessories_link(my_bot, type, brand, model):
-    file = open('data/accessories.json')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//accessories.json')
     data = json.load(file)
     file.close()
-    choice = 'common'
+
     if model:
         response = str(my_bot.get_response("model_phụ_kiện"))
-        choice = model
     elif brand == 'common':
         response = str(my_bot.get_response('loại_phụ_kiện'))
     else:
         response = str(my_bot.get_response('hãng_phụ_kiện'))
-        choice = brand
     response = response.replace('!type!', type.upper())
     link = '<a href="' + data[type][
         model if model else brand] + '" target="_blank">' + type.upper() + (
@@ -40,11 +27,9 @@ def accessories_link(my_bot, type, brand, model):
     if '!model!' in response:
         response = response.replace('!model!', model.upper())
     if '!list' in response:
-        file = open('data/learned/accessories_learned.json', 'r', encoding='utf-8')
-        data = json.load(file)
         keys = list(data[type])
         for e in keys:
-            if data[type][e] <= 2:
+            if hasNumbers(e):
                 keys.remove(e)
         choices = str(keys).replace("'", '')
         choices = choices.replace('[', '')
@@ -53,12 +38,11 @@ def accessories_link(my_bot, type, brand, model):
         response = response.replace('!list!', choices.upper())
 
     print(response)
-    learn(type, choice)
     return response
 
 
 def accessories_analyze(my_bot, userText):
-    file = open('data/accessories.json')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//accessories.json')
     data = json.load(file)
     file.close()
 
@@ -86,9 +70,8 @@ def accessories_analyze(my_bot, userText):
             model = e
     return accessories_link(my_bot, type, brand, model)
 
-
 def laptop_link(my_bot, feature, choice):
-    file = open('data/laptop_features.json', encoding='utf-8')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8')
     data = json.load(file)
     file.close()
 
@@ -98,11 +81,12 @@ def laptop_link(my_bot, feature, choice):
         output = output.replace('!feature!', (feature + ' ' + choice).upper())
         link = '<a href="' + data[feature][choice] + '" target="_blank">Click here</a>'
         output = output.replace('!link!', link)
+
     return output
 
 
 def laptop_analyze(my_bot, userText):
-    file = open('data/laptop_features.json', encoding='utf-8')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8')
     data = json.load(file)
     file.close()
 
@@ -124,8 +108,8 @@ def laptop_analyze(my_bot, userText):
 
 
 def accessories(my_bot, userText):
-    msgAfterWait = 'Bạn đã chọn được mẫu nào chưa ạ?'
-    miliseconds = 5000
+    msgAfterWait = ''
+    miliseconds = 0
     output = None
     if 'phụ kiện' in userText:
         output = my_bot.get_response('phụ_kiện')
