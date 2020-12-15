@@ -130,12 +130,12 @@ def get_warranty_response(my_bot, request):
             output = "vẫn còn thời hạn bảo hành"
             res = str(my_bot.get_response(output))
             respon = respon + ' vẫn còn thời hạn bảo hành. '
-            return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': 0}}
+            return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}
         else:
             output = 'hết hạn bảo hành'
             respon = respon + " đã hết hạn bảo hành. "
             res = str(my_bot.get_response(output))
-            return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': 0}} 
+            return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}} 
     elif check_Warranty_Serial(userText) == False:
         respone = 'ko trùng serial'
 
@@ -144,4 +144,4 @@ def get_warranty_response(my_bot, request):
     #Write_dataJson(output, "value", SaveUserText)
     response = str(my_bot.get_response(output))
 
-    return {'output': response, 'timeOut': {'msg': msgAfterWait, 'milisecond': 0}}
+    return {'output': response, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}
