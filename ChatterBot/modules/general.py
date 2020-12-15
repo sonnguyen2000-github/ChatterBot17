@@ -25,5 +25,11 @@ def get_general_response(my_bot, userText):
         sale_end = today + timedelta(7)
         output = str(my_bot.get_response(output)).replace('!sale_start!', str(sale_start)).replace('!sale_end!',
                                                                                                    str(sale_end))
+    elif 'rồi' in userText or 'chọn được' in userText:
+        output = 'chọn_được'
+        output = str(my_bot.get_response(output))
+    elif ('mua' in userText and 'online' in userText) or 'đặt' in userText:
+        output = 'begin_order'
+        output = str(my_bot.get_response(output))
     return {"output": output, 'timeOut': {'msg': msgAfterWait,
                                           'milisecond': milisecond}} if output else None

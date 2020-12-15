@@ -9,6 +9,7 @@ from flask import Flask, render_template, request
 from ChatterBot17.ChatterBot.modules.accessories_advisory import accessories
 from ChatterBot17.ChatterBot.modules.general import get_general_response
 from ChatterBot17.ChatterBot.modules.laptopAdvisory import get_laptop_response
+from ChatterBot17.ChatterBot.modules.order import proccessOrder, checkOrderInfo, linkOrder
 from ChatterBot17.ChatterBot.modules.repair import get_repair_response
 from ChatterBot17.ChatterBot.modules.warranty import get_warranty_response
 
@@ -67,6 +68,31 @@ def get_general():  # get_general được gọi khi chưa chọn mục tư vấ
         output = {'output': str(my_bot.get_response('unknown')),
                   'timeOut': {'msg': '', 'milisecond': 0}}
     return output
+
+
+# order processing
+@app.route('/get/order')
+def process_order():
+    userText = request.args.get('msg')
+    output = 'unknown'
+    if userText.isdigit() and len(userText) == 1:
+        output = proccessOrder(userText)
+    elif 'huỷ' in userText:
+        output = 'cancel_order'
+    elif checkOrderInfo() != 'confirm_order':
+        file = open('data/orderInfo.json', 'r', encoding='utf-8')
+        data = json.load(file)
+        data[len(data) - 1][checkOrderInfo()] = userText
+        file = open('data/orderInfo.json', 'w', encoding='utf-8')
+        json.dump(data, file, indent=2, ensure_ascii=False)
+        file.close()
+        print(data)
+        output = checkOrderInfo()
+        if output == 'confirm_order':
+            return {'output': linkOrder(my_bot),
+                    'timeOut': {'msg': '', 'milisecond': 0}}
+    return {'output': str(my_bot.get_response(output)),
+            'timeOut': {'msg': '', 'milisecond': 0}}
 
 
 ## Tư vấn bán hàng

@@ -124,8 +124,8 @@ def laptop_analyze(my_bot, userText):
 
 
 def accessories(my_bot, userText):
-    msgAfterWait = ''
-    miliseconds = 0
+    msgAfterWait = 'Bạn đã chọn được mẫu nào chưa ạ?'
+    miliseconds = 5000
     output = None
     if 'phụ kiện' in userText:
         output = my_bot.get_response('phụ_kiện')

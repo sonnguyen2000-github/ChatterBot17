@@ -1,79 +1,81 @@
 import json
 
 
-def order(my_bot):
-    if checkCustomerInfo():
-        return customerInfo(my_bot, checkCustomerInfo())
-    return productInfo(my_bot)
+def linkOrder(my_bot):
+    order = str(my_bot.get_response('confirm_order'))
+    file = open('data/orderInfo.json', 'r', encoding='utf-8')
+    data = json.load(file)
+    file.close()
+    data = data[len(data) - 1]
+    order = order.replace('!product!', data['product'])
+    order = order.replace('!name!', data['name'])
+    order = order.replace('!phone!', str(data['phone']))
+    order = order.replace('!address!', data['address'])
+    return order
 
 
-def productInfo(my_bot):
-    return str(my_bot.get_response('lưu_thông_tin_sp'))
+def order():
+    file = open('data/orderInfo.json', 'r', encoding='utf-8')
+    data = json.load(file)
+    new = {
+        "product": "",
+        "name": "",
+        "phone": "",
+        "address": ""
+    }
+    data.append(new)
+    print(data)
+    file = open('data/orderInfo.json', 'w', encoding='utf-8')
+    json.dump(data, file, indent=2, ensure_ascii=False)
+    file.close()
+
+    return customerInfo(checkOrderInfo())
 
 
-def customerInfo(my_bot, info):
-    key = ''
+def customerInfo(info):
+    key = info
     if info == 'name':
-        key = 'lưu_thông_tin_hoten'
+        key = 'save_name'
     elif info == 'phone':
-        key = 'lưu_thông_tin_sdt'
+        key = 'save_phone'
     elif info == 'address':
-        key = 'lưu_thông_tin_diachi'
-    return str(my_bot.get_response(key))
+        key = 'save_address'
+    elif info == 'product':
+        key = 'save_product_link'
+    return key
 
 
-def checkCustomerInfo():
-    file = open('data/orderInfo.json', encoding='utf-8')
+def checkOrderInfo():
+    file = open('data/orderInfo.json', 'r', encoding='utf-8')
     data = json.load(file)
     file.close()
+    data = data[len(data) - 1]
     for e in data:
-        if e != 'product' and str(data[e]) == '':
+        if str(data[e]) == '':
             return e
-    return None
-
-
-def confirmOrder(my_bot):
-    return my_bot.get_response('confirm_order')
-
-
-def changeOrder(my_bot):
-    file = open('data/orderInfo.json', 'r+', encoding='utf-8')
-    data = json.load(file)
-    for e in data:
-        data[e] = ''
-    json.dump(data, file)
-    file.close()
-
-    return order(my_bot)
+    return 'confirm_order'
 
 
 def cancelOrder():
-    file = open('data/orderInfo.json', 'r+', encoding='utf-8')
+    file = open('data/orderInfo.json', 'r', encoding='utf-8')
     data = json.load(file)
-    data['product'] = ''
-    json.dump(data, file)
+    del data[len(data) - 1]
+    file = open('data/orderInfo.json', 'w', encoding='utf-8')
+    json.dump(data, file, indent=2)
     file.close()
 
-    return 'ĐƠn hàng đã được huỷ'
+    return 'order_canceled'
 
 
-def proccessOrder(my_bot, userText):
-    msgAfterWait = ''
-    miliseconds = 0
+def proccessOrder(userText):
     output = None
-    key = ''
-    if 'rồi' in userText or 'chọn được' in userText:
-        key = 'chọn_được'
-    if ('mua' in userText and 'online' in userText) or 'đặt' in userText:
-        output = order(my_bot)
     if userText == '1':
-        output = confirmOrder(my_bot)
-    if userText == '0':
-        output = changeOrder(my_bot)
-    if 'huỷ' in userText:
-        output = 'cancel_order'
-    if userText == '2':
+        output = 'order_confirmed'
+    elif userText == '2':
         output = cancelOrder()
+    elif userText == '5':
+        output = order()
+    elif userText == '7':
+        output = 'order_end'
 
-    return {"output": str(output), 'timeOut': {'msg': msgAfterWait,
-                                               'milisecond': miliseconds}} if output else None
+    return output
