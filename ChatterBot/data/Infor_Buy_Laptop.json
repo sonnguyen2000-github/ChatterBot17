@@ -1,4 +1,4 @@
-{
+﻿{
  "key": "null",
  "listNameLaptop": [
   "dell",
@@ -8,15 +8,28 @@
   "lenovo"
  ],
  "listPurpose": [
+  "chơi game",
+  "học tập",
   "văn phòng",
   "kế toán",
-  "đồ họa",
-  "công nghệ thông tin",
-  "kĩ thuật",
-  "chơi game",
-  "học tập"
+  "đồ họa"
  ],
  "InforBuyLaptop": [
-  
+  {
+   "name": "dell",
+   "purpose": []
+  },
+  {
+   "name": "dell",
+   "purpose": []
+  },
+  {
+   "name": "hp",
+   "purpose": []
+  },
+  {
+   "name": "hp",
+   "purpose": []
+  }
  ]
 }

@@ -1,6 +1,48 @@
 import json
 
+# def Write_InforBuyLaptop(userText):
+#     userText = userText.split()
+#     entry = {
+#         "name": "ko co ten",
+#         "purpose": []
+#     }
+#     with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//Infor_Buy_Laptop.json', 'r', encoding = "utf-8-sig") as Infor_File:
+#         loader = json.load(Infor_File)
+#         listNameLaptop = []
+#         listPurpose = []
+#         listNameLaptop = loader['listNameLaptop']
+#         listPurpose = loader['listPurpose']
+   
+#     if 'học tập' in userText or "học sinh" in userText or 'sinh viên' in userText:
+#         entry['purpose'].append("hoc_tap")
+#     if 'văn phòng' in userText or 'kế toán' in userText:
+#         entry['purpose'].append("van_phong")
+#     if 'game' in userText:
+#         entry['purpose'].append('choi_game')
+#     if 'đồ họa' in userText or 'thiết kế' in userText or 'designer' in userText:
+#         entry['purpose'].append('do_hoa')
+#     if 'công nghệ thông tin' in userText or 'lập trình' in userText:
+#         entry['purpose'].append('cntt')
+
+#     sizeListName = len(listNameLaptop)
+#     for i in range(0, sizeListName):
+#         if (listNameLaptop[i] in userText):
+#             entry["name"] = listNameLaptop[i]
+#             break
+
+#     sizeListPurpose = len(listPurpose)
+#     for i in range(0, sizeListName):
+#         if (listPurpose[i] in userText):
+#             print(listPurpose[i] in userText)
+#             entry["purpose"].append(listPurpose[i])
+#             break
+
+#     loader["InforBuyLaptop"].append(entry)
+#     with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//Infor_Buy_Laptop.json', 'w', encoding = "utf-8-sig") as Infor_File2:
+#         json.dump(loader, Infor_File2, ensure_ascii = False, indent = 1)
+
 def get_laptop_response(my_bot, request):
+
     check = False
     timeOut = 10000
     msgAfterWait = 'Bạn đã chọn được mẫu nào chưa ạ?'
@@ -9,6 +51,8 @@ def get_laptop_response(my_bot, request):
     userText = str.lower(userText)
     number = []
 
+    #Write_InforBuyLaptop(userText)
+    
     if 'asus' in userText:
        user = { 'laptop': 'asus',
                 'price': 0,
