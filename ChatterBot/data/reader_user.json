@@ -1,9 +1,15 @@
 {
  "key": "null",
  "value": [
- 	{
- 		"output1": 1,
- 		"input1": 1,
- 	}
+  {
+   "output1": 1,
+   "input1": 1
+  },
+  {
+   "bảo hành": "bảo hành"
+  },
+  {
+   "bảo hành": "bảo hành"
+  }
  ]
 }

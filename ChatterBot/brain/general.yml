@@ -1,18 +1,40 @@
 categories:
-- This is my own data ouside the corpus
+  - This is my own data ouside the corpus
 conversations:
-- - unknown
-  - Mình chưa hiểu rõ lắm, bạn vui lòng nhắc lại được không ạ.
-- - xin chào
-  - Chào mừng bạn đến với Laptop247. Bạn vui lòng chọn mục bên dưới để được tư vấn ạ.
-- - tạm_biệt
-  - Cám ơn bạn quan tâm đến cửa hàng. Rất mong được phục vụ bạn sớm nhất ạ
-- - cám_ơn
-  - Không có gì ạ. Rất vui được hỗ trợ bạn!
-- - cám_ơn
-  - Không có gì ạ, mình rất vui được hỗ trợ bạn.
-- - địa chỉ
-  - Mời bạn ghé qua cửa hàng của chúng mình tại 40 Lê Thanh Nghị để được các bạn nhân viên hỗ trợ nha.
-- - ưu đãi
-  - Dạ, từ ngày !sale_start! đến hết ngày !sale_end! shop đang có chương trình giảm giá lên đến 50% cho một số mặt hàng.
-   Mời bạn ghé qua shop sớm để hưởng thật nhiều ưu đãi nhé.
+  - - unknown
+    - Mình chưa hiểu rõ lắm, bạn vui lòng nhắc lại được không ạ.
+  - - xin chào
+    - Chào mừng bạn đến với Laptop247. Bạn vui lòng chọn mục bên dưới để được tư vấn ạ.
+  - - tạm_biệt
+    - Cám ơn bạn quan tâm đến cửa hàng. Rất mong được phục vụ bạn sớm nhất ạ
+  - - cám_ơn
+    - Không có gì ạ. Rất vui được hỗ trợ bạn!
+  - - cám_ơn
+    - Không có gì ạ, mình rất vui được hỗ trợ bạn.
+  - - địa chỉ
+    - Mời bạn ghé qua cửa hàng của chúng mình tại 40 Lê Thanh Nghị để được các bạn nhân viên hỗ trợ nha.
+  - - ưu đãi
+    - Dạ, từ ngày !sale_start! đến hết ngày !sale_end! shop đang có chương trình giảm giá lên đến 50% cho một số mặt hàng.
+      Mời bạn ghé qua shop sớm để hưởng thật nhiều ưu đãi nhé.
+  - - chọn_được
+    - Bạn có thể ghé qua Laptop247 số 40 Lê Thanh Nghị để các nhân vân viên hỗ trợ mua hàng trực tiếp.
+      Hoặc bạn cũng có thể đặt hàng online tại đây.
+  - - lưu_thông_tin_sp
+    - Bạn vui lòng cho mình xin link thông tin sản phẩm ạ.
+  - - lưu_thông_tin_hoten
+    - Bạn vui lòng cho mình xin họ tên của bạn ạ.
+  - - lưu_thông_tin_sdt
+    - Bạn vui lòng cho mình xin số điện thoại để shipper liên lạc ạ.
+  - - lưu_thông_tin_diachi
+    - Bạn vui lòng cho mình xin địa chỉ để shipper giao hàng ạ.
+  - - confirm_order
+    - Bạn vui lòng xác nhận đặt hàng
+      Họ tên !hoten!
+      Sđt !sđt!
+      Địa chỉ !diachi!
+      Sản phảm !sp!
+      gõ 1 để xác nhận, 0 để thay đổi
+  - - change_order
+    - Bạn muốn thay đổi thông tin gì ạ.
+  - - cancel_order
+    - Ấn 2 để huỷ nhé bạn.

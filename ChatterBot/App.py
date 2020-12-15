@@ -8,6 +8,7 @@ from flask import Flask, render_template, request
 from ChatterBot17.ChatterBot.modules.accessories_advisory import accessories
 from ChatterBot17.ChatterBot.modules.general import get_general_response
 from ChatterBot17.ChatterBot.modules.laptopAdvisory import get_laptop_response
+from ChatterBot17.ChatterBot.modules.order import proccessOrder
 from ChatterBot17.ChatterBot.modules.repair import get_repair_response
 from ChatterBot17.ChatterBot.modules.warranty import get_warranty_response
 
@@ -15,7 +16,6 @@ app = Flask(__name__)
 
 my_bot = ChatBot("MyChatterBot",
                  storage_adapter='chatterbot.storage.SQLStorageAdapter',
-
                  logic_adapters=[
                      {
                          'import_path': 'chatterbot.logic.BestMatch',
@@ -30,7 +30,7 @@ trainer = ChatterBotCorpusTrainer(my_bot)
 # my_bot.storage.drop()  # chỉ cần học một lần
 # trainer.train('brain')  # nếu dữ liệu thay đổi cần drop dữ liệu cũ đi học lại
 
-with open('data/conversation.json', 'w', encoding='utf-8') as file:
+with open('data/learned/conversation.json', 'w', encoding='utf-8') as file:
     file.flush()
     file.write('{}')
 
@@ -40,10 +40,10 @@ with open('data/ReadUser.json', 'w', encoding='utf-8') as file:
 
 
 def json_conversation_save(userText, output):
-    with open('data/conversation.json', 'r', encoding='utf-8') as file:
+    with open('data/learned/conversation.json', 'r', encoding='utf-8') as file:
         old_data = json.load(file)
         file.close()
-    with open('data/conversation.json', 'w', encoding='utf-8') as file:
+    with open('data/learned/conversation.json', 'w', encoding='utf-8') as file:
         data = {userText: output}
         old_data.update(data)
         json.dump(old_data, file, ensure_ascii=False, indent=2)
@@ -94,7 +94,7 @@ def get_repair():
               'timeOut': {'msg': '', 'milisecond': 0}}
     if get_repair_response(my_bot, request):
         output = get_repair_response(my_bot, request)
-    elif get_warranty_response(my_bot, request):
+    if get_warranty_response(my_bot, request):
         output = get_warranty_response(my_bot, request)
     elif get_general_response(my_bot, userText.lower()):
         output = get_general_response(my_bot, userText.lower())
