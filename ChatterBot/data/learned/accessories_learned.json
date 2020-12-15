@@ -2,10 +2,10 @@
   "ram": {
     "8gb": 0,
     "16gb": 2,
-    "common": 6,
+    "common": 12,
     "gigabyte": 0,
     "kingston": 0,
-    "samsung": 0
+    "samsung": 6
   },
   "ssd": {
     "sata 3": 0,

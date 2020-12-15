@@ -28,13 +28,13 @@ conversations:
   - - lưu_thông_tin_diachi
     - Bạn vui lòng cho mình xin địa chỉ để shipper giao hàng ạ.
   - - confirm_order
-    - Bạn vui lòng xác nhận đặt hàng
-      Họ tên !hoten!
-      Sđt !sđt!
-      Địa chỉ !diachi!
-      Sản phảm !sp!
+    - Bạn vui lòng xác nhận thông tin đơn hàng\n
+      Họ tên !hoten!\n
+      Sđt !sđt!\n
+      Địa chỉ !diachi!\n
+      Sản phảm !sp!\n
       gõ 1 để xác nhận, 0 để thay đổi
   - - change_order
     - Bạn muốn thay đổi thông tin gì ạ.
   - - cancel_order
-    - Ấn 2 để huỷ nhé bạn.
+    - Ấn 2 nhé.

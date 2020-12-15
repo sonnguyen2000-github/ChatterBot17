@@ -4,11 +4,11 @@ from chatterbot import ChatBot
 from chatterbot.response_selection import get_random_response
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask, render_template, request
+
 # Mn sửa lại cú pháp import phù hợp
 from ChatterBot17.ChatterBot.modules.accessories_advisory import accessories
 from ChatterBot17.ChatterBot.modules.general import get_general_response
 from ChatterBot17.ChatterBot.modules.laptopAdvisory import get_laptop_response
-from ChatterBot17.ChatterBot.modules.order import proccessOrder
 from ChatterBot17.ChatterBot.modules.repair import get_repair_response
 from ChatterBot17.ChatterBot.modules.warranty import get_warranty_response
 
