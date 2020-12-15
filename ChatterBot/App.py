@@ -5,11 +5,12 @@ from chatterbot.response_selection import get_random_response
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask, render_template, request
 # Mn sửa lại cú pháp import phù hợp
-from ChatterBot17.ChatterBot.modules.accessories_advisory import accessories
-from ChatterBot17.ChatterBot.modules.general import get_general_response
-from ChatterBot17.ChatterBot.modules.laptopAdvisory import get_laptop_response
-from ChatterBot17.ChatterBot.modules.repair import get_repair_response
-from ChatterBot17.ChatterBot.modules.warranty import get_warranty_response
+from modules.accessories_advisory import accessories
+from modules.general import get_general_response
+from modules.laptopAdvisory import get_laptop_response
+from modules.repair import get_repair_response
+from modules.warranty import get_warranty_response
+
 
 app = Flask(__name__)
 
@@ -27,23 +28,25 @@ my_bot = ChatBot("MyChatterBot",
                  read_only=True)
 trainer = ChatterBotCorpusTrainer(my_bot)
 
-# my_bot.storage.drop()  # chỉ cần học một lần
-# trainer.train('brain')  # nếu dữ liệu thay đổi cần drop dữ liệu cũ đi học lại
+#  my_bot.storage.drop()  # chỉ cần học một lần
+trainer.train('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//brain')  # nếu dữ liệu thay đổi cần drop dữ liệu cũ đi học lại
 
-with open('data/conversation.json', 'w', encoding='utf-8') as file:
+
+with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//conversation.json', 'w', encoding='utf-8') as file:
     file.flush()
     file.write('{}')
 
-with open('data/ReadUser.json', 'w', encoding='utf-8') as file:
+
+with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'w', encoding='utf-8') as file:
     file.flush()
     file.write('{"laptop": "", "price": 0, "purpose": ""}')
 
 
 def json_conversation_save(userText, output):
-    with open('data/conversation.json', 'r', encoding='utf-8') as file:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//conversation.json', 'r', encoding='utf-8') as file:
         old_data = json.load(file)
         file.close()
-    with open('data/conversation.json', 'w', encoding='utf-8') as file:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//conversation.json', 'w', encoding='utf-8') as file:
         data = {userText: output}
         old_data.update(data)
         json.dump(old_data, file, ensure_ascii=False, indent=2)
@@ -97,7 +100,7 @@ def get_repair():
     elif get_warranty_response(my_bot, request):
         output = get_warranty_response(my_bot, request)
     elif get_general_response(my_bot, userText.lower()):
-        output = get_general_response(my_bot, userText.lower())
+        output = get_general_aeresponse(my_bot, userText.lower())
     output = output if output else {'output': str(my_bot.get_response('unknown')),
                                     'timeOut': {'msg': '', 'milisecond': 0}}
     json_conversation_save(userText, output['output'])

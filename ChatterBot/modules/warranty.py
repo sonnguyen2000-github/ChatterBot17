@@ -4,16 +4,16 @@ from datetime import date
 
 
 def Write_dataJson(output, value, userText):
-    with open('data/reader_user.json', 'r',
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//reader_user.json', 'r',
               encoding="utf8") as user_dumped:
         reader_loader = json.load(user_dumped)
         entry = {output: userText}
         reader_loader["value"].append(entry)
 
-    with open('data/reader_user.json', 'w', encoding="utf8") as user_dumped2:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//reader_user.json', 'w', encoding="utf8") as user_dumped2:
         json.dump(reader_loader, user_dumped2, ensure_ascii=False, indent=1)
 
-    with open('data/reader_user.json', 'r', encoding="utf8") as user_dumped3:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//reader_user.json', 'r', encoding="utf8") as user_dumped3:
         reader_loader2 = json.load(user_dumped3)
         print(reader_loader2)
 
@@ -47,7 +47,7 @@ def check_in(output, str):
     return False
 
 def getData_InforLaptop():
-    with open('data/bill.json','r', encoding="utf8") as bill_file:   
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//bill.json','r', encoding="utf8") as bill_file:   
         reader_loader = json.load(bill_file)
     size = len(reader_loader["value_bill"])
     listSerial = []
@@ -146,7 +146,7 @@ def get_warranty_response(my_bot, request):
     elif 'mình yêu nhau' in userText:
         output = 'mình yêu nhau đi'
     elif 'mua' in userText and 'ngày' in userText:
-        elif check_warranty_Date(userText) == True:
+        if check_warranty_Date(userText) == True:
             output = 'vẫn còn thời hạn bảo hành'
         else:
             output = 'hết thời hạn bảo hành'
