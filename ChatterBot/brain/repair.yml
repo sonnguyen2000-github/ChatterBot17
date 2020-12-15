@@ -1,0 +1,31 @@
+categories:
+  - This is own data outside the corpus
+conversations:
+  - - sửa chữa
+    - bạn có thắc mắc gì về vấn đề sửa chữa ạ
+  
+  - - sua_chua
+    - Mời bạn đến cửa hàng của bọn mình tại địa chỉ SN 20 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội. Cảm ơn bạn đã tin dùng ạ.
+
+  - - thông tin sửa chữa sản phẩm
+    - Dạ bên mình có dịch vụ kiểm trả laptop, sữa chữa và thay thế phụ kiện máy tính. Laptop của bạn gặp vấn đề gì ạ?
+
+  - - muon_sua_chưa
+    - Bạn muốn sửa chữa bộ phận nào ạ gì ạ?
+  - - muon_sua_chưa
+    - Máy tính của bạn bị hỏng hóc gì ạ?
+  - - muon_sua_chưa
+    - Máy tính của bạn có vấn đề gì ạ?
+
+  - - loi_loa
+    - Laptop của bạn có thể đã hỏng loa. Bạn muốn sửa chữa hay thay thế ạ?
+
+  - - loi_o_cung
+    - Laptop của bạn có thể đã hỏng ổ cứng. Bạn muốn sửa chữa hay thay thế ạ?
+  - - thay_the_o_cung
+    - Bên mình có 2 loại ổ cứng là SSD và HDD. Bạn muốn thay thế loại nào ạ?
+  - - thay_the_ssd
+    - Bên mình đang có 2 loại SSD 128GB và SSD 256GB. Bạn muốn thay thế loại nào ạ?
+  - - thay_the_hdd
+    - Bên mình đang có 2 loại HDD 500GB và HDD 1TB. Bạn muốn thay thế loại nào ạ?
+  
