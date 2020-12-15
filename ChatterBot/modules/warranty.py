@@ -2,19 +2,6 @@ import json
 import time
 from datetime import date
 
-# def Write_dataJson(output, value, userText):
-#     with open('C://Users//Admin//Downloads//ChatterBot17-main//ChatterBot//reader_user.json','r', encoding="utf8") as user_dumped:
-#         reader_loader = json.load(user_dumped)
-#         entry = {output: userText, 'giá': 10, 'tên laptop': userText}       
-#         reader_loader["value"].append(entry)
-
-#     with open('C://Users//Admin//Downloads//ChatterBot17-main//ChatterBot//reader_user.json','w', encoding="utf8") as user_dumped2:
-#         json.dump(reader_loader, user_dumped2, ensure_ascii = False, indent = 1)
-
-#     with open('C://Users//Admin//Downloads//ChatterBot17-main//ChatterBot//reader_user.json','r', encoding="utf8") as user_dumped3: 
-#         reader_loader2 = json.load(user_dumped3)
-#         print(reader_loader2)
-
 def check_warranty_Date(str):
     today = date.today()
     today = today.strftime('%d/%m/%Y')
@@ -139,9 +126,8 @@ def get_warranty_response(my_bot, request):
     elif check_Warranty_Serial(userText) == False:
         respone = 'ko trùng serial'
 
-    print(SaveUserText)
-    print('output = ' + output)
-    #Write_dataJson(output, "value", SaveUserText)
+    #print(SaveUserText)
+    #print('output = ' + output)
     response = str(my_bot.get_response(output))
 
     return {'output': response, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}

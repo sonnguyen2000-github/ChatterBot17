@@ -65,9 +65,6 @@ def get_repair_response(my_bot, request):
                   encoding='utf-8') as user_dumped:
             json.dump(data, user_dumped, ensure_ascii=False)
 
-    print(data["phu_kien"])
-    print(data[data["phu_kien"]])
-
     if output:
         if output == 'thay_the':
             output = str(my_bot.get_response(str(output)))

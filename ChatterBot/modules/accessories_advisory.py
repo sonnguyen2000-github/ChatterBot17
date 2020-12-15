@@ -1,7 +1,6 @@
 import json
 import re
 
-
 def hasNumbers(inputString):
     return bool(re.search(r'\d', inputString))
 
@@ -98,6 +97,8 @@ def laptop_analyze(my_bot, userText):
         feature = 'ssd'
     if 'màn' in userText or 'inch' in userText:
         feature = 'màn hình'
+    if 'màu' in userText:
+        feature = 'màu'
     for e in data[feature]:
         if e in userText:
             choice = e
@@ -114,7 +115,7 @@ def accessories(my_bot, userText):
     if 'ram' in userText or 'cpu' in userText or 'chip' in userText or 'core' in userText \
             or 'sạc' in userText or 'ổ cứng' in userText \
             or 'hdd' in userText or 'ssd' in userText or 'vga' in userText \
-            or 'adapter' in userText or 'màn' in userText:
+            or 'adapter' in userText or 'màn' in userText or 'màu' in userText:
         if 'laptop' in userText or 'máy' in userText:
             output = laptop_analyze(my_bot, userText)
         else:

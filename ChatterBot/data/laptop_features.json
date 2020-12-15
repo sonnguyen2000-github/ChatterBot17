@@ -22,5 +22,13 @@
     "13 inch": "https://fptshop.com.vn/may-tinh-xach-tay?man-hinh=khoang-13-inch&sort=ban-chay-nhat",
     "14 inch": "https://fptshop.com.vn/may-tinh-xach-tay?man-hinh=khoang-14-inch&sort=ban-chay-nhat",
     "15 inch": "https://fptshop.com.vn/may-tinh-xach-tay?man-hinh=khoang-15-inch&sort=ban-chay-nhat"
+  },
+  "màu": {
+    "đen": "https://laptopfull.com/laptop-mau-den/",
+    "trắng": "https://laptopfull.com/laptop-mau-trang/",
+    "bạc": "https://laptopfull.com/laptop-mau-bac/",
+    "xám": "https://laptopfull.com/laptop-mau-xam/",
+    "vàng gold": "https://laptopfull.com/laptop-mau-vang/",
+    "hồng": "https://laptopfull.com/laptop-mau-hong/"
   }
 }

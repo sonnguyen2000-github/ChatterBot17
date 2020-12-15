@@ -1,5 +1,56 @@
 import json
 
+def Write_InforBuyLaptop():  
+    with open('C://Users//Admin//Desktop//ChatterBot17/ChatterBot//data//demand_infor.json', 'r', encoding = 'utf-8-sig') as json_file :
+         data = json.load(json_file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
+         user = json.load(json_file)
+
+    if user['laptop'] == 'asus' and user['purpose'] == 'học tập - văn phòng':
+        data['demand_info'].append({"laptop_name": "asus", "purpose": "học tập - văn phòng"})
+    if user['laptop'] == 'asus' and user['purpose'] == 'đồ họa - kĩ thuât':
+        data['demand_info'].append({"laptop_name": "asus", "purpose": "đồ họa - kĩ thuât"})
+    if user['laptop'] == 'asus' and user['purpose'] == 'gaming':
+        data['demand_info'].append({"laptop_name": "asus", "purpose": "gaming"})
+
+    if user['laptop'] == 'dell' and user['purpose'] == 'học tập - văn phòng':
+        data['demand_info'].append({"laptop_name": "dell", "purpose": "học tập - văn phòng"})
+    if user['laptop'] == 'dell' and user['purpose'] == 'đồ họa - kĩ thuât':
+        data['demand_info'].append({"laptop_name": "dell", "purpose": "đồ họa - kĩ thuât"})
+    if user['laptop'] == 'dell' and user['purpose'] == 'gaming':
+        data['demand_info'].append({"laptop_name": "dell", "purpose": "gaming"})
+
+    if user['laptop'] == 'macbook' and user['purpose'] == 'học tập - văn phòng':
+        data['demand_info'].append({"laptop_name": "macbook", "purpose": "học tập - văn phòng"})
+    if user['laptop'] == 'macbook' and user['purpose'] == 'đồ họa - kĩ thuât':
+        data['demand_info'].append({"laptop_name": "macbook", "purpose": "đồ họa - kĩ thuât"})
+    if user['laptop'] == 'macbook' and user['purpose'] == 'gaming':
+        data['demand_info'].append({"laptop_name": "macbook", "purpose": "gaming"})
+    
+    if user['laptop'] == 'lenovo' and user['purpose'] == 'học tập - văn phòng':
+        data['demand_info'].append({"laptop_name": "lenovo", "purpose": "học tập - văn phòng"})
+    if user['laptop'] == 'lenovo' and user['purpose'] == 'đồ họa - kĩ thuât':
+        data['demand_info'].append({"laptop_name": "lenovo", "purpose": "đồ họa - kĩ thuât"})
+    if user['laptop'] == 'lenovo' and user['purpose'] == 'gaming':
+        data['demand_info'].append({"laptop_name": "lenovo", "purpose": "gaming"})
+
+    if user['laptop'] == 'hp' and user['purpose'] == 'học tập - văn phòng':
+        data['demand_info'].append({"laptop_name": "hp", "purpose": "học tập - văn phòng"})
+    if user['laptop'] == 'hp' and user['purpose'] == 'đồ họa - kĩ thuât':
+        data['demand_info'].append({"laptop_name": "hp", "purpose": "đồ họa - kĩ thuât"})
+    if user['laptop'] == 'hp' and user['purpose'] == 'gaming':
+        data['demand_info'].append({"laptop_name": "hp", "purpose": "gaming"})
+
+    if user['laptop'] == 'acer' and user['purpose'] == 'học tập - văn phòng':
+        data['demand_info'].append({"laptop_name": "acer", "purpose": "học tập - văn phòng"})
+    if user['laptop'] == 'acer' and user['purpose'] == 'đồ họa - kĩ thuât':
+        data['demand_info'].append({"laptop_name": "acer", "purpose": "đồ họa - kĩ thuât"})
+    if user['laptop'] == 'acer' and user['purpose'] == 'gaming':
+        data['demand_info'].append({"laptop_name": "acer", "purpose": "gaming"})
+
+    with open('C://Users//Admin//Desktop//ChatterBot17/ChatterBot//data//demand_infor.json','w', encoding = 'utf-8-sig') as file :
+            json.dump(data, file, ensure_ascii = False) 
+
 def get_laptop_response(my_bot, request):
     check = False
     timeOut = 10000
@@ -9,6 +60,8 @@ def get_laptop_response(my_bot, request):
     userText = str.lower(userText)
     number = []
     
+    Write_InforBuyLaptop()
+
     if 'asus' in userText:
        user = { 'laptop': 'asus',
                 'price': 0,
