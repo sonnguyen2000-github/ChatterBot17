@@ -4,8 +4,11 @@
     "\\ChatterBot",
     "\\ChatterBot\\.idea",
     "\\ChatterBot\\.idea\\codeStyles",
-    "\\ChatterBot\\.idea\\inspectionProfiles"
+    "\\ChatterBot\\.idea\\inspectionProfiles",
+    "\\ChatterBot\\brain",
+    "\\ChatterBot\\data",
+    "\\ChatterBot\\modules"
   ],
-  "SelectedNode": "\\ChatterBot\\App.py",
+  "SelectedNode": "\\ChatterBot\\modules\\laptopAdvisory.py",
   "PreviewInSolutionExplorer": false
 }
