@@ -104,13 +104,13 @@ def get_laptop_response(my_bot, request):
         if int(user_loaded['price']) > 0 and int(user_loaded['price']) < 10 and user_loaded['laptop']== 'asus':
             output = 'asus_10_triệu'
             check = True
-        elif int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'asus':
+        elif int(user_loaded['price']) >= 10 and int(user_loaded['price']) < 15 and user_loaded['laptop']== 'asus':
             output = 'asus_15_triệu'
             check = True
-        elif int(user_loaded['price']) > 15 and int(user_loaded['price']) <= 20 and user_loaded['laptop']== 'asus':
+        elif int(user_loaded['price']) >= 15 and int(user_loaded['price']) < 20 and user_loaded['laptop']== 'asus':
             output = 'asus_20_triệu'
             check = True
-        elif int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'asus':
+        elif int(user_loaded['price']) >= 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'asus':
             output = 'asus_25_triệu'
             check = True
     
@@ -132,13 +132,13 @@ def get_laptop_response(my_bot, request):
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
         with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
             user_loaded = json.load(json_file)
-        if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'dell':
+        if int(user_loaded['price']) >= 10 and int(user_loaded['price']) < 15 and user_loaded['laptop']== 'dell':
             output = 'dell1'
             check = True
-        elif int(user_loaded['price']) > 15 and int(user_loaded['price']) <= 20 and user_loaded['laptop']== 'dell':
+        elif int(user_loaded['price']) >= 15 and int(user_loaded['price']) < 20 and user_loaded['laptop']== 'dell':
             output = 'dell2'
             check = True
-        elif int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'dell':
+        elif int(user_loaded['price']) >= 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'dell':
             output = 'dell3'
             check = True
         elif int(user_loaded['price']) > 25 and user_loaded['laptop']== 'dell':
@@ -163,13 +163,13 @@ def get_laptop_response(my_bot, request):
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
         with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
             user_loaded = json.load(json_file)
-        if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'hp':
+        if int(user_loaded['price']) >= 10 and int(user_loaded['price']) < 15 and user_loaded['laptop']== 'hp':
             output = 'hp1 15 triệu'
             check = True
-        elif int(user_loaded['price']) > 15 and int(user_loaded['price']) <= 20 and user_loaded['laptop']== 'hp':
+        elif int(user_loaded['price']) >= 15 and int(user_loaded['price']) < 20 and user_loaded['laptop']== 'hp':
             output = 'hp2 20 triệu'
             check = True
-        elif int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'hp':
+        elif int(user_loaded['price']) >= 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'hp':
             output = 'hp3 25 triệu'
             check = True
         elif int(user_loaded['price']) > 25 and user_loaded['laptop']== 'hp':
@@ -197,10 +197,10 @@ def get_laptop_response(my_bot, request):
         if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'acer':
             output = 'acer1'
             check = True
-        elif int(user_loaded['price']) > 15 and int(user_loaded['price']) <= 20 and user_loaded['laptop']== 'acer':
+        elif int(user_loaded['price']) >= 15 and int(user_loaded['price']) < 20 and user_loaded['laptop']== 'acer':
             output = 'acer2'
             check = True
-        elif int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'acer':
+        elif int(user_loaded['price']) >= 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'acer':
             output = 'acer3'
             check = True
         elif int(user_loaded['price']) > 25 and user_loaded['laptop']== 'acer':
@@ -225,13 +225,13 @@ def get_laptop_response(my_bot, request):
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
         with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
             user_loaded = json.load(json_file)
-        if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'lenovo':
+        if int(user_loaded['price']) >= 10 and int(user_loaded['price']) < 15 and user_loaded['laptop']== 'lenovo':
             output = 'lenovo1'
             check = True
-        elif int(user_loaded['price']) > 15 and int(user_loaded['price']) <= 20 and user_loaded['laptop']== 'lenovo':
+        elif int(user_loaded['price']) >= 15 and int(user_loaded['price']) < 20 and user_loaded['laptop']== 'lenovo':
             output = 'lenovo2'
             check = True
-        elif int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'lenovo':
+        elif int(user_loaded['price']) >= 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'lenovo':
             output = 'lenovo3'
             check = True
         elif int(user_loaded['price']) > 25 and user_loaded['laptop']== 'lenovo':
@@ -256,14 +256,14 @@ def get_laptop_response(my_bot, request):
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
         with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
             user_loaded = json.load(json_file)
-        if int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'macbook':
+        if int(user_loaded['price']) >= 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'macbook':
             output = 'macbook1 25 triệu'
             check = True
         elif int(user_loaded['price']) > 25 and user_loaded['laptop']== 'macbook':
             output = 'macbook2 26 triệu'
             check = True
 
-    if 'học tập' in userText or 'văn phòng' in userText or 'sinh viên' in userText or 'học sinh' in userText or 'kế toán' in userText or 'đi học' in userText:
+    if 'học tập' in userText or 'văn phòng' in userText or 'sinh viên' in userText or 'học sinh' in userText or 'kế toán' in userText or 'đi học' in userText or 'đại học' in userText:
         user_loaded.update({'purpose': 'học tập - văn phòng'})
         with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8-sig') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
@@ -284,7 +284,7 @@ def get_laptop_response(my_bot, request):
         elif 'kế toán' in userText or 'văn phòng' in userText  :        
             output = 'văn phòng'
             check = True
-        elif 'đi học' in userText or 'sinh viên' in userText or 'học sinh' in userText or 'học tập' in userText:
+        else:
             output = 'học tập'
             check = True
     
@@ -311,6 +311,9 @@ def get_laptop_response(my_bot, request):
             check = True
         elif 'lập trình' in userText or 'công nghệ thông tin' in userText:
             output = 'lập trình'
+            check = True
+        else:
+            output = 'đồ họa kĩ thuật'
             check = True
 
     if 'game' in userText or 'gaming' in userText:
@@ -490,5 +493,8 @@ def get_laptop_response(my_bot, request):
         output = 'địa chỉ'
     if 'ưu đãi' in userText or 'khuyến mãi' in userText or 'khuyến mại' in userText or 'giảm giá' in userText or 'sale' in userText or'chương trình' in userText:
         output= 'ưu đãi'
+    if 'tặng kèm' in userText or 'phụ kiện đi kèm' in userText:
+        output = 'tặng kèm'
+
     return {'output': str(my_bot.get_response(str(output))), 'timeOut': { 'msg': msgAfterWait, 'milisecond': 0 }}\
         if output else None

@@ -11,7 +11,7 @@ def get_general_response(my_bot, userText):
     if 'tạm biệt' in userText:
         output = 'tạm_biệt'
         output = str(my_bot.get_response(output))
-    elif 'địa chỉ' in userText or ('cửa hàng' in userText and ('ở đâu' in userText or 'đến' in userText)):
+    elif 'địa chỉ' in userText or 'ở đâu' in userText:
         output = 'địa chỉ'
         output = str(my_bot.get_response(output))
     elif 'cám ơn' in userText:

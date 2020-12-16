@@ -5,7 +5,7 @@ def get_repair_response(my_bot, request):
     phuKien = None
 
     ## Đọc file json
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//repair.json', encoding='utf-8')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//repair.json', encoding='utf-8-sig')
     data = json.load(file)
 
     timeOut = 0
@@ -61,8 +61,8 @@ def get_repair_response(my_bot, request):
 
     if phuKien:
         data.update({"phu_kien": phuKien})
-        with open('data/repair.json', 'w',
-                  encoding='utf-8') as user_dumped:
+        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//repair.json', 'w',
+                  encoding='utf-8-sig') as user_dumped:
             json.dump(data, user_dumped, ensure_ascii=False)
 
     if output:
