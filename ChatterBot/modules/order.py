@@ -14,7 +14,22 @@ def linkOrder(my_bot):
     return order
 
 
-def order():
+def changePersonal():
+    file = open('data/orderInfo.json', 'r', encoding='utf-8')
+    data = json.load(file)
+    if len(data) > 0:
+        change = data[len(data) - 1]
+        for e in change:
+            if e != 'product':
+                data[len(data) - 1][e] = ''
+        file = open('data/orderInfo.json', 'w', encoding='utf-8')
+        json.dump(data, file, indent=2, ensure_ascii=False)
+        file.close()
+
+    return customerInfo(checkOrderInfo())
+
+
+def newOrder():
     file = open('data/orderInfo.json', 'r', encoding='utf-8')
     data = json.load(file)
     new = {
@@ -23,6 +38,13 @@ def order():
         "phone": "",
         "address": ""
     }
+    if len(data) > 0:
+        new = {
+            "product": "",
+            "name": data[len(data) - 1]['name'],
+            "phone": data[len(data) - 1]['phone'],
+            "address": data[len(data) - 1]['address']
+        }
     data.append(new)
     print(data)
     file = open('data/orderInfo.json', 'w', encoding='utf-8')
@@ -69,13 +91,15 @@ def cancelOrder():
 
 
 def proccessOrder(userText):
-    output = None
+    output = 'unknown'
     if userText == '1':
         output = 'order_confirmed'
     elif userText == '2':
         output = cancelOrder()
+    elif userText == '0':
+        output = changePersonal()
     elif userText == '5':
-        output = order()
+        output = newOrder()
     elif userText == '7':
         output = 'order_end'
 

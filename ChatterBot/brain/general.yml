@@ -32,11 +32,11 @@ conversations:
   - - confirm_order
     - Bạn vui lòng xác nhận thông tin đơn hàng
       <div style="display:inline-block;">
-      <p><span>Họ tên:"\t" !name!</span></p>
-      <p><span>Sđt:"\t" !phone!</span></p>
-      <p><span>Địa chỉ:"\t" !address!</span></p>
-      <p><span>Sản phảm:"\t" !product!</span></p>
-      <p><span>Ấn 1 để xác nhận, 2 để huỷ</span></p>
+      <p><span>Họ tên !name!</span></p>
+      <p><span>Sđt !phone!</span></p>
+      <p><span>Địa chỉ !address!</span></p>
+      <p><span>Sản phảm !product!</span></p>
+      <p><span>Ấn 1 để xác nhận, 2 để huỷ, 0 để thay đổi thông tin cá nhân</span></p>
       </div>
   - - cancel_order
     - Ấn 2 nhé.
