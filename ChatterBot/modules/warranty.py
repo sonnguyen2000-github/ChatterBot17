@@ -110,13 +110,8 @@ def get_warranty_response(my_bot, request):
     if check_Warranty_Serial(userText) == True:
         listInfor = []
         listInfor = get_InforLaptop_serial(userText)
-<<<<<<< HEAD
         respon = "Sản phẩm " + listInfor[2] + "(mã sản phẩm: " + listInfor[0] + ") " + \
                 "của khách hàng " + listInfor[4] + " được mua vào ngày " + listInfor[3] 
-=======
-        respon = "sản phẩm " + listInfor[2] + "(mã sản phẩm: " + listInfor[0] + ") " + \
-                "của khách hàng " + listInfor[4] + " được mua vào ngày " + listInfor[3]
->>>>>>> 43137b0bc322418ef49b11ce664507d09abbcc26
 
         if check_warranty_Date(listInfor[3]) == True:
             output = "vẫn còn thời hạn bảo hành"
