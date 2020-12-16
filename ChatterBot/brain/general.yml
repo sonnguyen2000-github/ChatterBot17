@@ -45,5 +45,5 @@ conversations:
     - Ấn 2 nhé.
   - - order_confirmed
     - Đơn hàng thành công. Ấn 7 để kết thúc, 5 để đặt đơn mới
-    - order_canceled
+  - - order_canceled
     - Đơn hàng đã được huỷ. Ấn 7 để kết thúc, 5 để đặt đơn mới

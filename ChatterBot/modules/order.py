@@ -55,9 +55,9 @@ def changePersonal():
 
 
 def newOrder():
-    file = open('data/orderInfo.json', 'r', encoding='utf-8')
+    file = open('data/orderInfo.json', 'r', encoding='utf-8-sig')
     data = json.load(file)
-    cache = open('data/learned/userInfo.json', 'r', encoding='utf-8')
+    cache = open('data/learned/userInfo.json', 'r', encoding='utf-8-sig')
     userInfo = json.load(cache)
 
     new = {

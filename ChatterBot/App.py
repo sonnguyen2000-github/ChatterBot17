@@ -6,7 +6,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask, render_template, request
 
 # Mn sửa lại cú pháp import phù hợp
-from ChatterBot17.ChatterBot.modules.accessories_advisory import accessories
+from ChatterBot17.ChatterBot.modules.accessories_advisory import get_accessories_response
 from ChatterBot17.ChatterBot.modules.general import get_general_response
 from ChatterBot17.ChatterBot.modules.laptopAdvisory import get_laptop_response
 from ChatterBot17.ChatterBot.modules.order import proccessOrder, checkOrderInfo, linkOrder
@@ -106,8 +106,8 @@ def get_advisory():
     output = None
     if get_laptop_response(my_bot, request):
         output = get_laptop_response(my_bot, request)
-    elif accessories(my_bot, userText.lower()):
-        output = accessories(my_bot, userText.lower())
+    elif get_accessories_response(my_bot, userText.lower()):
+        output = get_accessories_response(my_bot, userText.lower())
     elif get_general_response(my_bot, userText.lower()):
         output = get_general_response(my_bot, userText.lower())
     output = output if output else {'output': str(my_bot.get_response('unknown')),
@@ -120,17 +120,19 @@ def get_advisory():
 @app.route("/get/repair")
 def get_repair():
     userText = request.args.get('msg')
-    output = {'output': 'unknown',
-              'timeOut': {'msg': '', 'milisecond': 0}}
+    output = None
     if get_warranty_response(my_bot, request):
         output = get_warranty_response(my_bot, request)
-    elif get_repair_response(my_bot, request):
-        output = get_repair_response(my_bot, request)
+    elif get_repair_response(my_bot, userText):
+        output = get_repair_response(my_bot, userText)
+    elif get_accessories_response(my_bot, userText):
+        output = get_accessories_response(my_bot, userText)
     elif get_general_response(my_bot, userText.lower()):
         output = get_general_response(my_bot, userText.lower())
     output = output if output else {'output': str(my_bot.get_response('unknown')),
                                     'timeOut': {'msg': '', 'milisecond': 0}}
     json_conversation_save(userText, output['output'])
+    print(output)
     return output
 
 

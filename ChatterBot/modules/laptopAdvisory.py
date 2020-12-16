@@ -1,21 +1,21 @@
 import json
 
 def Write_InforBuyLaptop():  
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//demand_infor.json', 'r', encoding = 'utf-8-sig') as json_file :
+    with open('data/learned//demand_infor.json', 'r', encoding = 'utf-8-sig') as json_file :
          data = json.load(json_file)
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
          user = json.load(json_file)
     if user['laptop'] == "" or  user['price'] == 0 or user['purpose'] == "":
         return 0
     else:        
         data['demand_info'].append({"laptop_name": user['laptop'], "price": user['price'], "purpose": user['purpose']})
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//demand_infor.json','w', encoding = 'utf-8-sig') as file :
+    with open('data/learned//demand_infor.json','w', encoding = 'utf-8-sig') as file :
             json.dump(data, file, ensure_ascii = False) 
 
 def count_Demand():
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8-sig') as json_file :
          user = json.load(json_file)
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//demand_statistics.json', 'r', encoding='utf-8-sig') as file :
+    with open('data/learned//demand_statistics.json', 'r', encoding='utf-8-sig') as file :
          count = json.load(file)
     if user['laptop'] == 'asus' and user['purpose'] =='học tập - văn phòng':
          count['asus học tập - văn phòng'] = count['asus học tập - văn phòng'] + 1 
@@ -70,11 +70,11 @@ def count_Demand():
     elif user['price'] > 25 :
         count['trên 25 triệu'] = count['trên 25 triệu'] + 1
 
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//demand_statistics.json', 'w', encoding='utf-8-sig') as count_file :
+    with open('data/learned//demand_statistics.json', 'w', encoding='utf-8-sig') as count_file :
         json.dump(count, count_file, ensure_ascii = False)
 def get_laptop_response(my_bot, request):
     check = False
-    timeOut = 10000
+    timeOut = 5000
     msgAfterWait = 'Bạn đã chọn được mẫu nào chưa ạ?'
     userText = request.args.get('msg')
     output = None
@@ -87,19 +87,19 @@ def get_laptop_response(my_bot, request):
                 'price': 0,
                 'purpose': ''
        }
-       with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+       with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user,user_dumped,ensure_ascii = False) 
  
     number = [int(s) for s in userText.split() if s.isdigit()]   
     n = (len(number))
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
     
     if n != 0 and 'triệu' in userText:
         user_loaded.update({ 'price': number[0] })
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if int(user_loaded['price']) > 0 and int(user_loaded['price']) < 10 and user_loaded['laptop']== 'asus':
             output = 'asus_10_triệu'
@@ -120,17 +120,17 @@ def get_laptop_response(my_bot, request):
                 'price': 0,
                 'purpose': ''
        }
-       with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+       with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user,user_dumped,ensure_ascii = False)             
     number = [int(s) for s in userText.split() if s.isdigit()]   
     n = (len(number))
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
     if n != 0 and 'triệu' in userText:
         user_loaded.update({ 'price': number[0] })
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'dell':
             output = 'dell1'
@@ -151,17 +151,17 @@ def get_laptop_response(my_bot, request):
                 'price': 0,
                 'purpose': ''
        }
-       with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+       with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user,user_dumped,ensure_ascii = False)             
     number = [int(s) for s in userText.split() if s.isdigit()]   
     n = (len(number))
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
     if n != 0 and 'triệu' in userText:
         user_loaded.update({ 'price': number[0] })
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'hp':
             output = 'hp1 15 triệu'
@@ -182,17 +182,17 @@ def get_laptop_response(my_bot, request):
                 'price': 0,
                 'purpose': ''
        }
-       with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+       with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user,user_dumped,ensure_ascii = False)             
     number = [int(s) for s in userText.split() if s.isdigit()]   
     n = (len(number))
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
     if n != 0 and 'triệu' in userText:
         user_loaded.update({ 'price': number[0] })
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'acer':
             output = 'acer1'
@@ -213,17 +213,17 @@ def get_laptop_response(my_bot, request):
                 'price': 0,
                 'purpose': ''
        }
-       with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+       with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user,user_dumped,ensure_ascii = False)             
     number = [int(s) for s in userText.split() if s.isdigit()]   
     n = (len(number))
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
     if n != 0 and 'triệu' in userText:
         user_loaded.update({ 'price': number[0] })
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if int(user_loaded['price']) >= 10 and int(user_loaded['price']) <= 15 and user_loaded['laptop']== 'lenovo':
             output = 'lenovo1'
@@ -244,17 +244,17 @@ def get_laptop_response(my_bot, request):
                 'price': 0,
                 'purpose': ''
        }
-       with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+       with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user,user_dumped,ensure_ascii = False)             
     number = [int(s) for s in userText.split() if s.isdigit()]   
     n = (len(number))
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+    with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
     if n != 0 and 'triệu' in userText:
         user_loaded.update({ 'price': number[0] })
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if int(user_loaded['price']) > 20 and int(user_loaded['price']) <= 25 and user_loaded['laptop']== 'macbook':
             output = 'macbook1 25 triệu'
@@ -265,9 +265,9 @@ def get_laptop_response(my_bot, request):
 
     if 'học tập' in userText or 'văn phòng' in userText or 'sinh viên' in userText or 'học sinh' in userText or 'kế toán' in userText or 'đi học' in userText:
         user_loaded.update({'purpose': 'học tập - văn phòng'})
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if (user_loaded['laptop']) == 'asus':
             output = 'asus_học_tập'
@@ -290,9 +290,9 @@ def get_laptop_response(my_bot, request):
     
     if 'đồ họa' in userText or 'kĩ thuật' in userText or 'kỹ thuật' in userText or 'công nghệ thông tin' in userText or 'lập trình' in userText or 'thiết kế' in userText:
         user_loaded.update({'purpose': 'đồ họa - kĩ thuật'})
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if (user_loaded['laptop']) == 'asus':
             output = 'asus_đồ_họa_kĩ_thuật'
@@ -315,9 +315,9 @@ def get_laptop_response(my_bot, request):
 
     if 'game' in userText or 'gaming' in userText:
         user_loaded.update({'purpose': 'gaming'})
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if (user_loaded['laptop']) == 'asus':
             output = 'asus_gaming'
@@ -334,9 +334,9 @@ def get_laptop_response(my_bot, request):
 
     if 'mỏng nhẹ' in userText or 'gọn nhẹ ' in userText:
         user_loaded.update({'purpose': 'mỏng nhẹ'})
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json','w', encoding='utf-8') as user_dumped :
+        with open('data/ReadUser.json','w', encoding='utf-8') as user_dumped :
             json.dump(user_loaded,user_dumped,ensure_ascii = False)
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'r', encoding='utf-8') as json_file :
+        with open('data/ReadUser.json', 'r', encoding='utf-8') as json_file :
             user_loaded = json.load(json_file)
         if (user_loaded['laptop']) == 'asus':
             output = 'asus_mỏng_nhẹ'
