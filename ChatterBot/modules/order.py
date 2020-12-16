@@ -3,8 +3,8 @@ import json
 
 def linkOrder(my_bot):
     order = str(my_bot.get_response('confirm_order'))
-    file = open('data/orderInfo.json', 'r', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
     file.close()
     data = data[len(data) - 1]
     order = order.replace('!product!', data['product'])
@@ -15,14 +15,14 @@ def linkOrder(my_bot):
 
 
 def changePersonal():
-    file = open('data/orderInfo.json', 'r', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
     if len(data) > 0:
         change = data[len(data) - 1]
         for e in change:
             if e != 'product':
                 data[len(data) - 1][e] = ''
-        file = open('data/orderInfo.json', 'w', encoding='utf-8')
+        file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'w', encoding='utf-8-sig')
         json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
 
@@ -30,8 +30,8 @@ def changePersonal():
 
 
 def newOrder():
-    file = open('data/orderInfo.json', 'r', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
     new = {
         "product": "",
         "name": "",
@@ -47,8 +47,8 @@ def newOrder():
         }
     data.append(new)
     print(data)
-    file = open('data/orderInfo.json', 'w', encoding='utf-8')
-    json.dump(data, file, indent=2, ensure_ascii=False)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'w', encoding='utf-8-sig') as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
     file.close()
 
     return customerInfo(checkOrderInfo())
@@ -68,8 +68,8 @@ def customerInfo(info):
 
 
 def checkOrderInfo():
-    file = open('data/orderInfo.json', 'r', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
     file.close()
     data = data[len(data) - 1]
     for e in data:
@@ -79,12 +79,12 @@ def checkOrderInfo():
 
 
 def cancelOrder():
-    file = open('data/orderInfo.json', 'r', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
     if len(data) > 0:
         del data[len(data) - 1]
-        file = open('data/orderInfo.json', 'w', encoding='utf-8')
-        json.dump(data, file, indent=2)
+        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'w', encoding='utf-8-sig') as file:
+            json.dump(data, file, indent=2)
         file.close()
 
     return 'order_canceled'

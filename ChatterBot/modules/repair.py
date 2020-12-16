@@ -5,7 +5,7 @@ def get_repair_response(my_bot, request):
     phuKien = None
 
     ## Đọc file json
-    file = open('data/repair.json', encoding='utf-8')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//repair.json', encoding='utf-8')
     data = json.load(file)
 
     timeOut = 0

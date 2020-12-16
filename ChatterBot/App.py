@@ -6,12 +6,12 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask, render_template, request
 
 # Mn sửa lại cú pháp import phù hợp
-from ChatterBot17.ChatterBot.modules.accessories_advisory import accessories
-from ChatterBot17.ChatterBot.modules.general import get_general_response
-from ChatterBot17.ChatterBot.modules.laptopAdvisory import get_laptop_response
-from ChatterBot17.ChatterBot.modules.order import proccessOrder, checkOrderInfo, linkOrder
-from ChatterBot17.ChatterBot.modules.repair import get_repair_response
-from ChatterBot17.ChatterBot.modules.warranty import get_warranty_response
+from modules.accessories_advisory import accessories
+from modules.general import get_general_response
+from modules.laptopAdvisory import get_laptop_response
+from modules.order import proccessOrder, checkOrderInfo, linkOrder
+from modules.repair import get_repair_response
+from modules.warranty import get_warranty_response
 
 app = Flask(__name__)
 
@@ -29,22 +29,22 @@ my_bot = ChatBot("MyChatterBot",
 trainer = ChatterBotCorpusTrainer(my_bot)
 
 # my_bot.storage.drop()  # chỉ cần học một lần
-# trainer.train('brain')  # nếu dữ liệu thay đổi cần drop dữ liệu cũ đi học lại
+trainer.train('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//brain')  # nếu dữ liệu thay đổi cần drop dữ liệu cũ đi học lại
 
-with open('data/learned/conversation.json', 'w', encoding='utf-8') as file:
+with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//conversation.json', 'w', encoding='utf-8-sig') as file:
     file.flush()
     file.write('{}')
 
-with open('data/ReadUser.json', 'w', encoding='utf-8') as file:
+with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'w', encoding='utf-8-sig') as file:
     file.flush()
     file.write('{"laptop": "", "price": 0, "purpose": ""}')
 
 
 def json_conversation_save(userText, output):
-    with open('data/learned/conversation.json', 'r', encoding='utf-8') as file:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//conversation.json', 'r', encoding='utf-8-sig') as file:
         old_data = json.load(file)
         file.close()
-    with open('data/learned/conversation.json', 'w', encoding='utf-8') as file:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//conversation.json', 'w', encoding='utf-8-sig') as file:
         data = {userText: output}
         old_data.update(data)
         json.dump(old_data, file, ensure_ascii=False, indent=2)
@@ -80,11 +80,11 @@ def process_order():
     elif 'huỷ' in userText:
         output = 'cancel_order'
     elif checkOrderInfo() != 'confirm_order':
-        file = open('data/orderInfo.json', 'r', encoding='utf-8')
-        data = json.load(file)
+        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file:
+            data = json.load(file)
         data[len(data) - 1][checkOrderInfo()] = userText
-        file = open('data/orderInfo.json', 'w', encoding='utf-8')
-        json.dump(data, file, indent=2, ensure_ascii=False)
+        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'w', encoding='utf-8-sig') as file:
+            json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
         print(data)
         output = checkOrderInfo()
