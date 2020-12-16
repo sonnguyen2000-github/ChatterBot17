@@ -6,7 +6,7 @@ def check_warranty_Date(str):
     today = date.today()
     today = today.strftime('%d/%m/%Y')
     list_today = today.split('/')
-    
+
     listDateWarranty = [int(s) for s in str.split('/') if s.isdigit()]
     print(listDateWarranty)
     lengthWarranty = len(listDateWarranty)
@@ -30,7 +30,7 @@ def check_warranty_Date(str):
                     return False
                 else:
                     return True
-                    
+
 def check_in(output, str):
     listStr = str.split(' ')
     for i in listStr:
@@ -39,7 +39,7 @@ def check_in(output, str):
     return False
 
 def getData_InforLaptop():
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//bill.json','r', encoding="utf8") as bill_file:   
+    with open('data/bill.json','r', encoding="utf-8") as bill_file:
         reader_loader = json.load(bill_file)
     size = len(reader_loader["value_bill"])
     listSerial = []
@@ -66,7 +66,7 @@ def getData_InforLaptop():
 def check_Warranty_Serial(userText):
     listAll = getData_InforLaptop()
     listSerial = listAll[0]
-    
+
     size = len(listSerial)
     for i in range(0, size):
         if (listSerial[i] in userText):
@@ -110,8 +110,13 @@ def get_warranty_response(my_bot, request):
     if check_Warranty_Serial(userText) == True:
         listInfor = []
         listInfor = get_InforLaptop_serial(userText)
+<<<<<<< HEAD
         respon = "Sản phẩm " + listInfor[2] + "(mã sản phẩm: " + listInfor[0] + ") " + \
                 "của khách hàng " + listInfor[4] + " được mua vào ngày " + listInfor[3] 
+=======
+        respon = "sản phẩm " + listInfor[2] + "(mã sản phẩm: " + listInfor[0] + ") " + \
+                "của khách hàng " + listInfor[4] + " được mua vào ngày " + listInfor[3]
+>>>>>>> 43137b0bc322418ef49b11ce664507d09abbcc26
 
         if check_warranty_Date(listInfor[3]) == True:
             output = "vẫn còn thời hạn bảo hành"
@@ -122,7 +127,7 @@ def get_warranty_response(my_bot, request):
             output = 'hết hạn bảo hành'
             respon = respon + " đã hết hạn bảo hành. "
             res = str(my_bot.get_response(output))
-            return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}} 
+            return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}
     elif check_Warranty_Serial(userText) == False:
         respone = 'ko trùng serial'
 

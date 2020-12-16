@@ -6,7 +6,11 @@
 			"price": "21 000 000",
 			"nameLaptop": "Dell inspiron 1137",
 			"dateBuy": "23 6 2018",
+<<<<<<< HEAD
 			"nameCustomer": "Trần Văn A"
+=======
+			"nameCustomer": "Nguyễn Văn A"
+>>>>>>> 43137b0bc322418ef49b11ce664507d09abbcc26
 		},
 		
 		{
