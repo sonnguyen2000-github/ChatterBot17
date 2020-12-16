@@ -27,7 +27,7 @@ def accessories_link(my_bot, type, brand, model):
     if '!model!' in response and model:
         response = response.replace('!model!', model.upper())
     if '!list' in response:
-        file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//accessories_learned.json')
+        file = open('C://Users//dmin//Desktop//ChatterBot17//ChatterBot//data//learned//accessories_learned.json')
         data = json.load(file)
         keys = list(data[type])
         for e in keys:
@@ -65,6 +65,9 @@ def accessories_analyze(my_bot, userText):
         type = 'hdd'
     elif 'cpu' in userText or 'chip' in userText:
         type = 'cpu'
+    for e in data:
+        if e in userText:
+            type = e
     for e in data[type]:
         if e in userText and not hasNumbers(e):
             brand = e
@@ -72,15 +75,17 @@ def accessories_analyze(my_bot, userText):
             model = e
     return accessories_link(my_bot, type, brand, model)
 
+
 def laptop_link(my_bot, feature, choice):
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8-sig') as file:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json',
+              encoding='utf-8-sig') as file:
         data = json.load(file)
     file.close()
 
     output = None
     if choice:
         output = str(my_bot.get_response('laptop_features'))
-        output = output.replace('!feature!', (feature + ' ' + choice).upper())
+        output = output.replace('!feature!', ((feature if feature != 'screen' else 'màn hình') + ' ' + choice).upper())
         link = '<a href="' + data[feature][choice] + '" target="_blank">Click here</a>'
         output = output.replace('!link!', link)
 
@@ -112,7 +117,7 @@ def laptop_analyze(my_bot, userText):
     return laptop_link(my_bot, feature, choice)
 
 
-def accessories(my_bot, userText):
+def get_accessories_response(my_bot, userText):
     msgAfterWait = 'Bạn đã chọn được mẫu nào chưa ạ.'
     miliseconds = 5000
     output = None

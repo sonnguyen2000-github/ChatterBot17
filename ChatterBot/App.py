@@ -6,7 +6,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask, render_template, request
 
 # Mn sửa lại cú pháp import phù hợp
-from modules.accessories_advisory import accessories
+from modules.accessories_advisory import get_accessories_response
 from modules.general import get_general_response
 from modules.laptopAdvisory import get_laptop_response
 from modules.order import proccessOrder, checkOrderInfo, linkOrder
@@ -38,6 +38,10 @@ with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//c
 with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//ReadUser.json', 'w', encoding='utf-8-sig') as file:
     file.flush()
     file.write('{"laptop": "", "price": 0, "purpose": ""}')
+
+with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//userInfo.json', 'w', encoding='utf-8-sig') as file:
+    file.flush()
+    file.write('{"name": "", "phone": "", "address": ""}')
 
 
 def json_conversation_save(userText, output):
@@ -79,12 +83,12 @@ def process_order():
         output = proccessOrder(userText)
     elif 'huỷ' in userText:
         output = 'cancel_order'
-    elif checkOrderInfo() != 'confirm_order':
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig') as file: 
-            data = json.load(file)
+    elif checkOrderInfo() != 'confirm_order' and checkOrderInfo() != 'unknown':
+        file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'r', encoding='utf-8-sig')
+        data = json.load(file)
         data[len(data) - 1][checkOrderInfo()] = userText
-        with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'w', encoding='utf-8-sig') as file:
-            json.dump(data, file, indent=2, ensure_ascii=False)
+        file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//orderInfo.json', 'w', encoding='utf-8-sig')
+        json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
         print(data)
         output = checkOrderInfo()
@@ -102,8 +106,8 @@ def get_advisory():
     output = None
     if get_laptop_response(my_bot, request):
         output = get_laptop_response(my_bot, request)
-    elif accessories(my_bot, userText.lower()):
-        output = accessories(my_bot, userText.lower())
+    elif get_accessories_response(my_bot, userText.lower()):
+        output = get_accessories_response(my_bot, userText.lower())
     elif get_general_response(my_bot, userText.lower()):
         output = get_general_response(my_bot, userText.lower())
     output = output if output else {'output': str(my_bot.get_response('unknown')),
@@ -116,17 +120,19 @@ def get_advisory():
 @app.route("/get/repair")
 def get_repair():
     userText = request.args.get('msg')
-    output = {'output': 'unknown',
-              'timeOut': {'msg': '', 'milisecond': 0}}
-    if get_repair_response(my_bot, request):
-        output = get_repair_response(my_bot, request)
+    output = None
     if get_warranty_response(my_bot, request):
         output = get_warranty_response(my_bot, request)
+    elif get_repair_response(my_bot, userText):
+        output = get_repair_response(my_bot, userText)
+    elif get_accessories_response(my_bot, userText):
+        output = get_accessories_response(my_bot, userText)
     elif get_general_response(my_bot, userText.lower()):
         output = get_general_response(my_bot, userText.lower())
     output = output if output else {'output': str(my_bot.get_response('unknown')),
                                     'timeOut': {'msg': '', 'milisecond': 0}}
     json_conversation_save(userText, output['output'])
+    print(output)
     return output
 
 
