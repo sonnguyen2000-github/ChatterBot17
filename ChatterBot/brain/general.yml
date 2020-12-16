@@ -31,11 +31,13 @@ conversations:
     - Bạn vui lòng cho mình xin địa chỉ để shipper giao hàng ạ.
   - - confirm_order
     - Bạn vui lòng xác nhận thông tin đơn hàng
-      Họ tên !name!
-      Sđt !phone!
-      Địa chỉ !address!
-      Sản phảm !product!
-      Ấn 1 để xác nhận, 2 để huỷ
+      <div style="display:inline-block;">
+      <p><span>Họ tên:"\t" !name!</span></p>
+      <p><span>Sđt:"\t" !phone!</span></p>
+      <p><span>Địa chỉ:"\t" !address!</span></p>
+      <p><span>Sản phảm:"\t" !product!</span></p>
+      <p><span>Ấn 1 để xác nhận, 2 để huỷ</span></p>
+      </div>
   - - cancel_order
     - Ấn 2 nhé.
   - - order_confirmed

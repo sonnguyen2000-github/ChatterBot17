@@ -7,7 +7,7 @@ def hasNumbers(inputString):
 
 
 def accessories_link(my_bot, type, brand, model):
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//accessories.json')
+    file = open('data/accessories.json')
     data = json.load(file)
     file.close()
 
@@ -24,12 +24,14 @@ def accessories_link(my_bot, type, brand, model):
     response = response.replace('!link!', link)
     if '!brand!' in response:
         response = response.replace('!brand!', brand.upper())
-    if '!model!' in response:
+    if '!model!' in response and model:
         response = response.replace('!model!', model.upper())
     if '!list' in response:
+        file = open('data/learned/accessories_learned.json')
+        data = json.load(file)
         keys = list(data[type])
         for e in keys:
-            if hasNumbers(e):
+            if int(data[type][e]) < 2:
                 keys.remove(e)
         choices = str(keys).replace("'", '')
         choices = choices.replace('[', '')
@@ -42,7 +44,7 @@ def accessories_link(my_bot, type, brand, model):
 
 
 def accessories_analyze(my_bot, userText):
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//accessories.json')
+    file = open('data/accessories.json')
     data = json.load(file)
     file.close()
 
@@ -71,7 +73,7 @@ def accessories_analyze(my_bot, userText):
     return accessories_link(my_bot, type, brand, model)
 
 def laptop_link(my_bot, feature, choice):
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8')
+    file = open('data/laptop_features.json', encoding='utf-8')
     data = json.load(file)
     file.close()
 
@@ -86,7 +88,7 @@ def laptop_link(my_bot, feature, choice):
 
 
 def laptop_analyze(my_bot, userText):
-    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8')
+    file = open('data/laptop_features.json', encoding='utf-8')
     data = json.load(file)
     file.close()
 
@@ -100,6 +102,9 @@ def laptop_analyze(my_bot, userText):
         feature = 'ssd'
     if 'màn' in userText or 'inch' in userText:
         feature = 'screen'
+    for e in data:
+        if e in userText:
+            feature = e
     for e in data[feature]:
         if e in userText:
             choice = e
@@ -108,15 +113,15 @@ def laptop_analyze(my_bot, userText):
 
 
 def accessories(my_bot, userText):
-    msgAfterWait = ''
-    miliseconds = 0
+    msgAfterWait = 'Bạn đã chọn được mẫu nào chưa ạ.'
+    miliseconds = 5000
     output = None
     if 'phụ kiện' in userText:
         output = my_bot.get_response('phụ_kiện')
     if 'ram' in userText or 'cpu' in userText or 'chip' in userText or 'core' in userText \
             or 'sạc' in userText or 'ổ cứng' in userText \
             or 'hdd' in userText or 'ssd' in userText or 'vga' in userText \
-            or 'adapter' in userText or 'màn' in userText:
+            or 'adapter' in userText or 'màn' in userText or 'màu' in userText:
         if 'laptop' in userText or 'máy' in userText:
             output = laptop_analyze(my_bot, userText)
         else:

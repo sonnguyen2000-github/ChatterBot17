@@ -59,10 +59,11 @@ def checkOrderInfo():
 def cancelOrder():
     file = open('data/orderInfo.json', 'r', encoding='utf-8')
     data = json.load(file)
-    del data[len(data) - 1]
-    file = open('data/orderInfo.json', 'w', encoding='utf-8')
-    json.dump(data, file, indent=2)
-    file.close()
+    if len(data) > 0:
+        del data[len(data) - 1]
+        file = open('data/orderInfo.json', 'w', encoding='utf-8')
+        json.dump(data, file, indent=2)
+        file.close()
 
     return 'order_canceled'
 
