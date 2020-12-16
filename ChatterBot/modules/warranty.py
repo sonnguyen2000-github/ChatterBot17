@@ -39,7 +39,7 @@ def check_in(output, str):
     return False
 
 def getData_InforLaptop():
-    with open('data/bill.json','r', encoding="utf-8") as bill_file:
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//bill.json','r', encoding="utf-8-sig") as bill_file:
         reader_loader = json.load(bill_file)
     size = len(reader_loader["value_bill"])
     listSerial = []
@@ -110,8 +110,8 @@ def get_warranty_response(my_bot, request):
     if check_Warranty_Serial(userText) == True:
         listInfor = []
         listInfor = get_InforLaptop_serial(userText)
-        respon = "sản phẩm " + listInfor[2] + "(mã sản phẩm: " + listInfor[0] + ") " + \
-                "của khách hàng " + listInfor[4] + " được mua vào ngày " + listInfor[3]
+        respon = "Sản phẩm " + listInfor[2] + "(mã sản phẩm: " + listInfor[0] + ") " + \
+                "của khách hàng " + listInfor[4] + " được mua vào ngày " + listInfor[3] 
 
         if check_warranty_Date(listInfor[3]) == True:
             output = "vẫn còn thời hạn bảo hành"
@@ -125,9 +125,6 @@ def get_warranty_response(my_bot, request):
             return {'output': respon + res, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}
     elif check_Warranty_Serial(userText) == False:
         respone = 'ko trùng serial'
-
-    #print(SaveUserText)
-    #print('output = ' + output)
     response = str(my_bot.get_response(output))
 
     return {'output': response, 'timeOut': {'msg': msgAfterWait, 'milisecond': timeOut}}

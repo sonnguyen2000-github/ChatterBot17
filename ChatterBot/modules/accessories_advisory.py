@@ -7,7 +7,7 @@ def hasNumbers(inputString):
 
 
 def accessories_link(my_bot, type, brand, model):
-    file = open('data/accessories.json')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//accessories.json')
     data = json.load(file)
     file.close()
 
@@ -27,7 +27,7 @@ def accessories_link(my_bot, type, brand, model):
     if '!model!' in response and model:
         response = response.replace('!model!', model.upper())
     if '!list' in response:
-        file = open('data/learned/accessories_learned.json')
+        file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//learned//accessories_learned.json')
         data = json.load(file)
         keys = list(data[type])
         for e in keys:
@@ -44,7 +44,7 @@ def accessories_link(my_bot, type, brand, model):
 
 
 def accessories_analyze(my_bot, userText):
-    file = open('data/accessories.json')
+    file = open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//accessories.json')
     data = json.load(file)
     file.close()
 
@@ -73,8 +73,8 @@ def accessories_analyze(my_bot, userText):
     return accessories_link(my_bot, type, brand, model)
 
 def laptop_link(my_bot, feature, choice):
-    file = open('data/laptop_features.json', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8-sig') as file:
+        data = json.load(file)
     file.close()
 
     output = None
@@ -88,8 +88,8 @@ def laptop_link(my_bot, feature, choice):
 
 
 def laptop_analyze(my_bot, userText):
-    file = open('data/laptop_features.json', encoding='utf-8')
-    data = json.load(file)
+    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//laptop_features.json', encoding='utf-8-sig') as file:
+        data = json.load(file)
     file.close()
 
     feature = None

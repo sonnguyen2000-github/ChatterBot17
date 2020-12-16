@@ -7,8 +7,9 @@
     "\\ChatterBot\\.idea\\inspectionProfiles",
     "\\ChatterBot\\brain",
     "\\ChatterBot\\data",
+    "\\ChatterBot\\data\\learned",
     "\\ChatterBot\\modules"
   ],
-  "SelectedNode": "\\ChatterBot\\data\\purchase_infor.json",
+  "SelectedNode": "\\ChatterBot\\App.py",
   "PreviewInSolutionExplorer": false
 }
