@@ -32,6 +32,7 @@ conversations:
   - - confirm_order
     - Bạn vui lòng xác nhận thông tin đơn hàng
       <div style="display:inline-block;">
+      <p><span>Mã đơn !id!</span></p>
       <p><span>Họ tên !name!</span></p>
       <p><span>Sđt !phone!</span></p>
       <p><span>Địa chỉ !address!</span></p>

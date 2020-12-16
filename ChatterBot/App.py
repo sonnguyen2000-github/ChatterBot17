@@ -79,7 +79,7 @@ def process_order():
         output = proccessOrder(userText)
     elif 'huỷ' in userText:
         output = 'cancel_order'
-    elif checkOrderInfo() != 'confirm_order':
+    elif checkOrderInfo() != 'confirm_order' and checkOrderInfo() != 'unknown':
         file = open('data/orderInfo.json', 'r', encoding='utf-8')
         data = json.load(file)
         data[len(data) - 1][checkOrderInfo()] = userText
@@ -91,6 +91,7 @@ def process_order():
         if output == 'confirm_order':
             return {'output': linkOrder(my_bot),
                     'timeOut': {'msg': '', 'milisecond': 0}}
+    print(output)
     return {'output': str(my_bot.get_response(output)),
             'timeOut': {'msg': '', 'milisecond': 0}}
 
