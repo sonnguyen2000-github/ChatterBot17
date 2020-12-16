@@ -91,7 +91,6 @@ def process_order():
         if output == 'confirm_order':
             return {'output': linkOrder(my_bot),
                     'timeOut': {'msg': '', 'milisecond': 0}}
-    print(output)
     return {'output': str(my_bot.get_response(output)),
             'timeOut': {'msg': '', 'milisecond': 0}}
 
