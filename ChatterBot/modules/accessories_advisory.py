@@ -127,7 +127,7 @@ def get_accessories_response(my_bot, userText):
             or 'sạc' in userText or 'ổ cứng' in userText \
             or 'hdd' in userText or 'ssd' in userText or 'vga' in userText \
             or 'adapter' in userText or 'màn' in userText or 'màu' in userText:
-        if 'laptop' in userText or 'máy' in userText:
+        if 'laptop' in userText or 'máy' in userText or 'lap' in userText:
             output = laptop_analyze(my_bot, userText)
         else:
             output = accessories_analyze(my_bot, userText)
