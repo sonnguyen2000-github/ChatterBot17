@@ -19,8 +19,8 @@ def accessories_link(my_bot, type, brand, model):
         response = str(my_bot.get_response('hãng_phụ_kiện'))
     response = response.replace('!type!', type.upper())
     link = '<a href="' + data[type][
-        model if model else brand] + '" target="_blank">' + type.upper() if type != 'screen' else 'màn hình' + (
-        '' if (brand == 'common' and not model) else ' ' + model.upper() if model else brand.upper()) + '</a>'
+        model if model else brand] + '" target="_blank">' + type.upper() + (
+               '' if (brand == 'common' and not model) else ' ' + model.upper() if model else brand.upper()) + '</a>'
     response = response.replace('!link!', link)
     if '!brand!' in response:
         response = response.replace('!brand!', brand.upper())
@@ -85,7 +85,7 @@ def laptop_link(my_bot, feature, choice):
     output = None
     if choice:
         output = str(my_bot.get_response('laptop_features'))
-        output = output.replace('!feature!', (feature + ' ' + choice).upper())
+        output = output.replace('!feature!', ((feature if feature != 'screen' else 'màn hình') + ' ' + choice).upper())
         link = '<a href="' + data[feature][choice] + '" target="_blank">Click here</a>'
         output = output.replace('!link!', link)
 
