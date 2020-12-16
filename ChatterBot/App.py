@@ -39,6 +39,10 @@ with open('data/ReadUser.json', 'w', encoding='utf-8') as file:
     file.flush()
     file.write('{"laptop": "", "price": 0, "purpose": ""}')
 
+with open('data/learned/userInfo.json', 'w', encoding='utf-8') as file:
+    file.flush()
+    file.write('{"name": "", "phone": "", "address": ""}')
+
 
 def json_conversation_save(userText, output):
     with open('data/learned/conversation.json', 'r', encoding='utf-8') as file:
