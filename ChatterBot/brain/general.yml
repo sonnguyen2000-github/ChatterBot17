@@ -19,6 +19,8 @@ conversations:
   - - chọn_được
     - Bạn có thể ghé qua Laptop247 số 40 Lê Thanh Nghị để các nhân vân viên hỗ trợ mua hàng trực tiếp.
       Hoặc bạn cũng có thể đặt hàng online tại đây.
+  - - mua_trực_tiếp
+    - Hẹn gặp bạn tại cửa hàng Laptop247 tại địa chỉ 40 Lê Thanh Nghị
   - - begin_order
     - Vui lòng ấn 5 để tiếp tục.
   - - save_product_link
@@ -32,6 +34,7 @@ conversations:
   - - confirm_order
     - Bạn vui lòng xác nhận thông tin đơn hàng
       <div style="display:inline-block;">
+      <p><span>Mã đơn !id!</span></p>
       <p><span>Họ tên !name!</span></p>
       <p><span>Sđt !phone!</span></p>
       <p><span>Địa chỉ !address!</span></p>

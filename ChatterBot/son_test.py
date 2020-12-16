@@ -3,6 +3,7 @@ import json
 file = open('data/orderInfo.json', 'r', encoding='utf-8')
 data = json.load(file)
 new = {
+    "id":"0",
     "product": "",
     "name": "",
     "phone": "",
