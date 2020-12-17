@@ -14,10 +14,10 @@ def get_general_response(my_bot, userText):
     elif 'địa chỉ' in userText or ('cửa hàng' in userText and ('ở đâu' in userText or 'đến' in userText)):
         output = 'địa chỉ'
         output = str(my_bot.get_response(output))
-    elif 'cám ơn' in userText or 'thank' in userText or 'ok' in userText:
         output = 'cám_ơn'
         output = str(my_bot.get_response(output))
-    elif 'ưu đãi' in userText or 'sale' in userText:
+    elif 'ưu đãi' in userText or 'sale' in userText or 'khuyến mãi' in userText \
+            or 'chương trình' in userText or 'giảm giá' in userText:
         output = 'ưu đãi'
         today = date.today()
         offset = (today.weekday() - 2) % 7
