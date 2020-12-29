@@ -11,9 +11,11 @@ def get_general_response(my_bot, userText):
     if 'tạm biệt' in userText:
         output = 'tạm_biệt'
         output = str(my_bot.get_response(output))
-    elif 'địa chỉ' in userText or ('cửa hàng' in userText and ('ở đâu' in userText or 'đến' in userText)):
-        output = 'địa chỉ'
+    elif 'địa chỉ' in userText or ('cửa hàng' in userText and ('ở đâu' in userText or 'đến' in userText)) \
+            or 'ở đâu' in userText:
+        output = 'địa_chỉ'
         output = str(my_bot.get_response(output))
+    elif 'cám ơn' in userText or 'cảm ơn' in userText or 'thanks' in userText:
         output = 'cám_ơn'
         output = str(my_bot.get_response(output))
     elif 'ưu đãi' in userText or 'sale' in userText or 'khuyến mãi' in userText \

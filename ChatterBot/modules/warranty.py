@@ -1,7 +1,7 @@
 import json
 from datetime import date
 
-from modules.accessories_advisory import hasNumbers
+from ChatterBot17.ChatterBot.modules.accessories_advisory import hasNumbers
 
 
 def check_warranty_Date(str):
@@ -43,7 +43,7 @@ def check_in(output, str):
 
 
 def getData_InforLaptop():
-    with open('C://Users//Admin//Desktop//ChatterBot17//ChatterBot//data//bill.json', 'r', encoding="utf-8-sig") as bill_file:
+    with open('data/bill.json', 'r', encoding="utf-8-sig") as bill_file:
         reader_loader = json.load(bill_file)
     size = len(reader_loader["value_bill"])
     listSerial = []

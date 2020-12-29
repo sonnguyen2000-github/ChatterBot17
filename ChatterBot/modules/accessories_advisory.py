@@ -27,7 +27,7 @@ def accessories_link(my_bot, type, brand, model):
     if '!model!' in response and model:
         response = response.replace('!model!', model.upper())
     if '!list' in response:
-        file = open('C://Users//dmin//Desktop//ChatterBot17//ChatterBot//data//learned//accessories_learned.json')
+        file = open('data/learned/accessories_learned.json')
         data = json.load(file)
         keys = list(data[type])
         for e in keys:
